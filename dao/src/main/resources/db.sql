@@ -1,9 +1,72 @@
+# drop database onlineStore;
+# create database onlineStoreTest;
+
 create table IF NOT EXISTS authUser
 (
-    id       int(64) auto_increment PRIMARY KEY,
+    id       bigint auto_increment PRIMARY KEY,
     login    varchar(50) not null,
     password varchar(50) not null,
-    role     varchar(50) not null
+    role     varchar(50) not null,
+    user_id  bigint      not null,
+    constraint authUser_user_id_FK foreign key (user_id) references user (id)
 #     role     enum ('ADMIN', 'USER') default 'USER' not null
 #     constraint authUser_login_unique unique (login)
 );
+
+# insert into authUser (login, password, role)
+# VALUES ('admin', 'admin', 'ADMIN');
+#        ('user', 'user', 'USER');
+# ----------------------------------------
+
+
+create table IF NOT EXISTS user
+(
+    id         bigint auto_increment PRIMARY KEY,
+    firstName  varchar(50)  not null,
+    secondName varchar(50)  not null,
+    email      varchar(100) not null,
+    phone      varchar(50)  not null,
+    user_id    bigint       not null
+);
+
+# insert into user (firstName, secondName, email, phone, user_id)
+# VALUES ('User', 'User', 'user@google.com', '55555', 2);
+# ----------------------------------------
+
+
+create table IF NOT EXISTS product
+(
+    id bigint auto_increment PRIMARY KEY,
+    name varchar(150) not null ,
+    description varchar(150) not null ,
+    price int not null,
+    quantity int not null
+);
+
+# ----------------------------------------
+
+create table IF NOT EXISTS product
+(
+    id bigint auto_increment PRIMARY KEY,
+    name varchar(150) not null ,
+    description varchar(150) not null ,
+    price int not null,
+    quantity int not null
+);
+
+# ----------------------------------------
+
+create table IF NOT EXISTS orderOfGoods
+(
+    id bigint auto_increment PRIMARY KEY,
+    user_id bigint not null,
+    product_id bigint not null,
+    dateOrder DATE not null,
+    priceOrder int not null,
+    quantityOrder int not null,
+    orderStatus varchar(50),
+    deliveryAddress varchar(250) not null,
+    deliveryDate DATE not null
+);
+
+# ----------------------------------------
