@@ -1,10 +1,9 @@
-package com.github.egorovag.onlineStore.model;
+package com.github.egorovag.onlineStore.dao.entity;
 
-import com.github.egorovag.onlineStore.model.enums.OrderStatus;
 
 import java.time.LocalDate;
 
-public class Order {
+public class OrderOfGoodsEntity {
     private long id;
     private long user_id;
     private long product_id;
