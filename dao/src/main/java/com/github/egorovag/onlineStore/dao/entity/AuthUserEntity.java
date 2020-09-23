@@ -1,6 +1,9 @@
 package com.github.egorovag.onlineStore.dao.entity;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.management.relation.Role;
+import javax.persistence.*;
 
 @Entity
 @Cacheable
@@ -53,7 +56,6 @@ public class AuthUserEntity {
         this.role = role;
     }
 
-    @Column
     public UserEntity getUserEntity() {
         return userEntity;
     }
