@@ -1,7 +1,7 @@
 package com.github.egorovag.onlineStore.service.config;
 
 
-import com.github.egorovag.onlineStore.dao.DaoConfig;
+import com.github.egorovag.onlineStore.dao.config.DaoConfig;
 import com.github.egorovag.onlineStore.service.AuthUserService;
 import com.github.egorovag.onlineStore.service.OrderOfGoodsService;
 import com.github.egorovag.onlineStore.service.ProductService;

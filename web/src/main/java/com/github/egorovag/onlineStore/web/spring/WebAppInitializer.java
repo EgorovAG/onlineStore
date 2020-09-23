@@ -1,8 +1,8 @@
 package com.github.egorovag.onlineStore.web.spring;
 
 
+import com.github.egorovag.onlineStore.dao.config.DaoConfig;
 import com.github.egorovag.onlineStore.service.config.ServiceConfig;
-import com.github.egorovag.onlineStore.service.dao.DaoConfig;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
