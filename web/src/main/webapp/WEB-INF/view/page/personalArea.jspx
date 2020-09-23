@@ -1,0 +1,74 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:s="http://www.springframework.org/tags/form"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0" xmlns:sec="http://www.springframework.org/security/tags">
+
+    <sec:authorize access="hasRole('ROLE_USER')">
+        <!--    <c:if test="${authUser.login != 'admin'}">-->
+        <h4><spring:message code="label.userName"/>: ${client.firstName}</h4>
+        <h1 style="text-align: center"><spring:message code="text.personalArea"/></h1>
+
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/toClientOrderJsp">
+                <button name="makeAnOrder"><spring:message code="button.makeAnOrder"/></button>
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/statusOrder">
+                <button name="viewOrders"><spring:message code="button.viewOrders"/></button>
+            </form>
+        </fieldset>
+
+        <s:form id="uploadForm" action="upload" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <th><label><spring:message code="label.copyPassport"/></label></th>
+                    <td><input name="avatar" type="file"/></td>
+                    <td><input id="uploadButton" type="submit" value="Upload image"/></td>
+                </tr>
+            </table>
+        </s:form>
+
+        <br/>
+        <br/>
+        <br/>
+        <a href="${pageContext.request.contextPath}/logout"><spring:message code="button.logout"/></a>
+        <!--    </c:if>-->
+    </sec:authorize>
+
+
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+        <!--    <c:if test="${authUser.login == 'admin'}">-->
+        <h4><spring:message code="label.admin"/></h4>
+        <h1 style="text-align: center"><spring:message code="text.personalArea"/></h1>
+
+        <fieldset>
+
+            <form action="${pageContext.request.contextPath}/orderList">
+                <button name="viewOrders"><spring:message code="button.viewOrders"/></button>
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/paginationRegisteredUsers">
+                <button name="viewingRegisteredUsers"><spring:message code="button.viewingRegisteredUsers"/></button>
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/blackListUsers">
+                <button name="blockedUsersList"><spring:message code="button.blockedUsersList"/></button>
+            </form>
+        </fieldset>
+        <br/>
+        <br/>
+        <br/>
+        <a href="${pageContext.request.contextPath}/logout"><spring:message code="button.logout"/></a>
+
+        <!--    </c:if>-->
+    </sec:authorize>
+
+</jsp:root>

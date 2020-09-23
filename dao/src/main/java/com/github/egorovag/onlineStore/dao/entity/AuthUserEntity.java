@@ -1,8 +1,8 @@
 package com.github.egorovag.onlineStore.dao.entity;
 
+import com.github.egorovag.onlineStore.model.enums.Role;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
 
 @Entity
@@ -11,21 +11,25 @@ import javax.persistence.*;
 @Table(name = "authUser")
 public class AuthUserEntity {
 
-    private Integer id;
+    private long id;
     private String login;
     private String password;
     private Role role;
+    private long user_id;
 
     private UserEntity userEntity;
+
+    public AuthUserEntity() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -47,7 +51,8 @@ public class AuthUserEntity {
         this.password = password;
     }
 
-    @Column
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
     public Role getRole() {
         return role;
     }
@@ -56,6 +61,17 @@ public class AuthUserEntity {
         this.role = role;
     }
 
+    @Column
+    public long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
+    }
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     public UserEntity getUserEntity() {
         return userEntity;
     }

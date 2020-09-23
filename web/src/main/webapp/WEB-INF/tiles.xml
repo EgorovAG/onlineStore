@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="default" template="/WEB-INF/view/layouts/default.jspx">
+        <!--        <put-attribute name="title" value="Web project"/>-->
+        <put-attribute name="header" value="/WEB-INF/view/common/header.jspx"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/view/common/footer.jspx"/>
+    </definition>
+
+    <definition name="index" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/index.jspx"/>
+    </definition>
+
+    <definition name="blackListUsers" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/blackListUsers.jspx"/>
+    </definition>
+
+    <definition name="registeredUsers" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/registeredUsers.jspx"/>
+    </definition>
+
+    <definition name="successfulPayment" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/successfulPayment.jspx"/>
+    </definition>
+
+    <definition name="orderPayment" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/orderPayment.jspx"/>
+    </definition>
+
+    <definition name="viewOrder" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/viewOrder.jspx"/>
+    </definition>
+
+    <definition name="login" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/login.jspx"/>
+    </definition>
+
+    <definition name="personalArea" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/personalArea.jspx"/>
+    </definition>
+
+    <definition name="youAreBlockClient" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/youAreBlockClient.jspx"/>
+    </definition>
+
+    <definition name="orderListForAdmin" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/orderListForAdmin.jspx"/>
+    </definition>
+
+    <definition name="orderListForClient" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/orderListForClient.jspx"/>
+    </definition>
+
+    <definition name="toPayOrder" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/toPayOrder.jspx"/>
+    </definition>
+
+    <definition name="registration" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/registration.jspx"/>
+    </definition>
+
+    <definition name="clientMakesAnOrder" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/clientMakesAnOrder.jspx"/>
+    </definition>
+
+    <definition name="showCopyPass" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/showCopyPass.jspx"/>
+    </definition>
+
+</tiles-definitions>
+

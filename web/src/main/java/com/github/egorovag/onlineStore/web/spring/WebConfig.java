@@ -1,8 +1,9 @@
 package com.github.egorovag.onlineStore.web.spring;
 
 
-import com.github.egorovag.hotelreserv.service.config.ServiceConfig;
-import com.github.egorovag.hotelreserv.web.controllers.*;
+
+import com.github.egorovag.onlineStore.service.config.ServiceConfig;
+import com.github.egorovag.onlineStore.web.controllers.Start;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -30,46 +31,42 @@ public class WebConfig {
         return new Start();
     }
 
-    @Bean
-    public BlackListController blackListServlet() {
-        return new BlackListController(serviceConfig.blackListService());
-    }
 
-    @Bean
-    public OrderController clientOrderServlet() {
-        return new OrderController(serviceConfig.orderService(), serviceConfig.roomService(),
-                serviceConfig.serviceHotelService());
-    }
-
-    @Bean
-    public LoginController loginServlet() {
-        return new LoginController(serviceConfig.authUserService(), serviceConfig.blackListService(), serviceConfig.clientService());
-    }
-
-    @Bean
-    public LogoutController logoutServlet() {
-        return new LogoutController();
-    }
-
-    @Bean
-    public PaginationRegisteredUsers paginationRegisteredUsers() {
-        return new PaginationRegisteredUsers(serviceConfig.authUserService());
-    }
-
-    @Bean
-    public RegistrationUsersController registrationUsersController() {
-        return new RegistrationUsersController(serviceConfig.authUserService(), serviceConfig.clientService());
-    }
-
-    @Bean
-    public FileController fileController() {
-        return new FileController();
-    }
-
-    @Bean
-    public ShowCopyPassport showCopyPassport() {
-        return new ShowCopyPassport();
-    }
+//    @Bean
+//    public OrderController clientOrderServlet() {
+//        return new OrderController(serviceConfig.orderService(), serviceConfig.roomService(),
+//                serviceConfig.serviceHotelService());
+//    }
+//
+//    @Bean
+//    public LoginController loginServlet() {
+//        return new LoginController(serviceConfig.authUserService(), serviceConfig.blackListService(), serviceConfig.clientService());
+//    }
+//
+//    @Bean
+//    public LogoutController logoutServlet() {
+//        return new LogoutController();
+//    }
+//
+//    @Bean
+//    public PaginationRegisteredUsers paginationRegisteredUsers() {
+//        return new PaginationRegisteredUsers(serviceConfig.authUserService());
+//    }
+//
+//    @Bean
+//    public RegistrationUsersController registrationUsersController() {
+//        return new RegistrationUsersController(serviceConfig.authUserService(), serviceConfig.clientService());
+//    }
+//
+//    @Bean
+//    public FileController fileController() {
+//        return new FileController();
+//    }
+//
+//    @Bean
+//    public ShowCopyPassport showCopyPassport() {
+//        return new ShowCopyPassport();
+//    }
 
     @Bean
     public CommonsMultipartResolver multipartResolver() {
@@ -78,10 +75,6 @@ public class WebConfig {
         return new CommonsMultipartResolver();
     }
 
-    @Bean
-    public ToPayOrderController toPayOrderServlet() {
-        return new ToPayOrderController(serviceConfig.orderService());
-    }
 
     @Bean
     public UrlBasedViewResolver tilesViewResolver() {

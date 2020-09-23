@@ -11,7 +11,7 @@ public class AuthUser {
     private Role role;
     private long user_id;
 
-    public AuthUser() {
+    public AuthUser(long id, String login, String password, Role role, long user_id) {
     }
 
     public long getId() {

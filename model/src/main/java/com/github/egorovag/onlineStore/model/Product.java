@@ -7,7 +7,7 @@ public class Product {
     private int price;
     private int quantity;
 
-    public Product() {
+    public Product(long id, String name, String description, int price, int quantity) {
     }
 
     public long getId() {

@@ -17,6 +17,9 @@ public class OrderOfGoods {
     public OrderOfGoods() {
     }
 
+    public OrderOfGoods(long id, long user_id, long product_id, LocalDate dateOrder, int quantityOrder, OrderStatus orderStatus, String deliveryAddress, String deliveryDate) {
+    }
+
     public long getId() {
         return id;
     }

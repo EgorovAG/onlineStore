@@ -7,7 +7,7 @@ public class User {
     private String email;
     private String phone;
 
-    public User() {
+    public User(long id, String firstName, String lastName, String email, String phone) {
     }
 
     public long getId() {
