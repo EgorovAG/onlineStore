@@ -19,7 +19,7 @@ public class OrderOfGoodsEntity {
     private int quantityOrder;
     private OrderStatus orderStatus;
     private String deliveryAddress;
-    private String deliveryDate;
+    private LocalDate deliveryDate;
 
     private UserEntity userEntity;
     private ProductEntity productEntity;
@@ -90,11 +90,11 @@ public class OrderOfGoodsEntity {
     }
 
     @Column
-    public String getDeliveryDate() {
+    public LocalDate getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(String deliveryDate) {
+    public void setDeliveryDate(LocalDate deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 

@@ -70,7 +70,7 @@ public class UserEntity {
         this.phone = phone;
     }
 
-    @OneToOne(mappedBy = "UserEntity", fetch = FetchType.EAGER,
+    @OneToOne(mappedBy = "userEntity", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     public AuthUserEntity getAuthUserEntity() {
         return authUserEntity;
@@ -80,7 +80,7 @@ public class UserEntity {
         this.authUserEntity = authUserEntity;
     }
 
-    @OneToMany(mappedBy = "UserEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     public List<OrderOfGoodsEntity> getOrderOfGoodsEntityList() {
         return orderOfGoodsEntityList;
     }

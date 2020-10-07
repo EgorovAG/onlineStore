@@ -12,12 +12,12 @@ public class OrderOfGoods {
     private int quantityOrder;
     private OrderStatus orderStatus;
     private String deliveryAddress;
-    private String deliveryDate;
+    private LocalDate deliveryDate;
 
     public OrderOfGoods() {
     }
 
-    public OrderOfGoods(long id, long user_id, long product_id, LocalDate dateOrder, int quantityOrder, OrderStatus orderStatus, String deliveryAddress, String deliveryDate) {
+    public OrderOfGoods(long id, long user_id, long product_id, LocalDate dateOrder, int quantityOrder, OrderStatus orderStatus, String deliveryAddress, LocalDate deliveryDate) {
     }
 
     public long getId() {
@@ -76,11 +76,11 @@ public class OrderOfGoods {
         this.deliveryAddress = deliveryAddress;
     }
 
-    public String getDeliveryDate() {
+    public LocalDate getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(String deliveryDate) {
+    public void setDeliveryDate(LocalDate deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
 }

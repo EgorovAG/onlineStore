@@ -68,7 +68,7 @@ public class ProductEntity {
         this.quantity = quantity;
     }
 
-    @OneToMany(mappedBy = "ProductEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "productEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     public List<OrderOfGoodsEntity> getOrderOfGoodsEntities() {
         return orderOfGoodsEntities;
     }

@@ -5,7 +5,7 @@ import com.github.egorovag.onlineStore.model.OrderOfGoods;
 import com.github.egorovag.onlineStore.service.OrderOfGoodsService;
 
 public class DefaultOrderOfGoodsService implements OrderOfGoodsService {
-    OrderOfGoodsDao orderOfGoodsDao;
+    private OrderOfGoodsDao orderOfGoodsDao;
 
     public DefaultOrderOfGoodsService(OrderOfGoodsDao orderOfGoodsDao) {
         this.orderOfGoodsDao = orderOfGoodsDao;

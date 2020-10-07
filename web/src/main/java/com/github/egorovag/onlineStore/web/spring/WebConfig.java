@@ -68,12 +68,12 @@ public class WebConfig {
 //        return new ShowCopyPassport();
 //    }
 
-    @Bean
-    public CommonsMultipartResolver multipartResolver() {
-        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(5000000);
-        return new CommonsMultipartResolver();
-    }
+//    @Bean
+//    public CommonsMultipartResolver multipartResolver() {
+//        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+//        multipartResolver.setMaxUploadSize(5000000);
+//        return new CommonsMultipartResolver();
+//    }
 
 
     @Bean
@@ -90,20 +90,20 @@ public class WebConfig {
         return tilesConfigurer;
     }
 
-    @Bean
-    public ReloadableResourceBundleMessageSource messageSource() {
-        ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
-        source.setBasename("classpath:i18n/messages");
-        source.setDefaultEncoding("UTF-8");
-        return source;
-    }
+//    @Bean
+//    public ReloadableResourceBundleMessageSource messageSource() {
+//        ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
+//        source.setBasename("classpath:i18n/messages");
+//        source.setDefaultEncoding("UTF-8");
+//        return source;
+//    }
 
-    @Bean
-    public CookieLocaleResolver localeResolver() {
-        CookieLocaleResolver resolver = new CookieLocaleResolver();
-        resolver.setDefaultLocale(Locale.forLanguageTag("en"));
-        resolver.setCookieName("LocaleCookie");
-        resolver.setCookieMaxAge(3600);
-        return resolver;
-    }
+//    @Bean
+//    public CookieLocaleResolver localeResolver() {
+//        CookieLocaleResolver resolver = new CookieLocaleResolver();
+//        resolver.setDefaultLocale(Locale.forLanguageTag("en"));
+//        resolver.setCookieName("LocaleCookie");
+//        resolver.setCookieMaxAge(3600);
+//        return resolver;
+//    }
 }

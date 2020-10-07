@@ -1,6 +1,7 @@
-# drop database onlineStore;
-# create database onlineStoreTest;
-# create database onlineStore;
+#drop database onlineStore;
+#drop database onlineStoreTest;
+#create database onlineStoreTest;
+#create database onlineStore;
 
 create table IF NOT EXISTS user
 (
@@ -54,7 +55,7 @@ create table IF NOT EXISTS orderOfGoods
     dateOrder       DATE         not null,
     priceOrder      int          not null,
     quantityOrder   int          not null,
-    orderStatus     varchar(50),
+    orderStatus     varchar(100),
     deliveryAddress varchar(250) not null,
     deliveryDate    DATE         not null
 );

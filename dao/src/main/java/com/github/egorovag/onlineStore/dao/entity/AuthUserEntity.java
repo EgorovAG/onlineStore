@@ -71,7 +71,7 @@ public class AuthUserEntity {
     }
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
     public UserEntity getUserEntity() {
         return userEntity;
     }
