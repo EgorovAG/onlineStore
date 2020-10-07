@@ -9,10 +9,11 @@
     </style>
 
     <header class="clearfix">
+        Какой-то тут хедер еще не придумал
 
-        <h1 style="text-align: center"><spring:message code="label.appName"/></h1>
-        <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=ru" style="padding: 5px">RU</a>
-        <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=en" style="padding: 5px">EN</a>
+<!--        <h1 style="text-align: center"><spring:message code="label.appName"/></h1>-->
+<!--        <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=ru" style="padding: 5px">RU</a>-->
+<!--        <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=en" style="padding: 5px">EN</a>-->
 
     </header>
 

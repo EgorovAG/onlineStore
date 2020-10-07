@@ -5,11 +5,11 @@
 
 create table IF NOT EXISTS user
 (
-    id         bigint auto_increment PRIMARY KEY,
-    firstName  varchar(50) not null,
-    secondName varchar(50) not null,
-    email      varchar(100),
-    phone      varchar(50)
+    id        bigint auto_increment PRIMARY KEY,
+    firstName varchar(50) not null,
+    lastName  varchar(50) not null,
+    email     varchar(100),
+    phone     varchar(50)
 );
 
 # insert into user (firstName, secondName, email, phone, user_id)
@@ -55,7 +55,7 @@ create table IF NOT EXISTS orderOfGoods
     dateOrder       DATE         not null,
     priceOrder      int          not null,
     quantityOrder   int          not null,
-    orderStatus     varchar(100),
+    orderStatus     int,
     deliveryAddress varchar(250) not null,
     deliveryDate    DATE         not null
 );
