@@ -1,0 +1,18 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:s="http://www.springframework.org/tags/form"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+    <h1>О нас</h1>
+    onlineStore - интернет-магазин ЧЕГО-ТО ТАМ в Беларуси. Сотрудничая с нами, вы приобретаете надежного поставщика,
+    который гарантирует соблюдение коротких сроков поставки, а также большой ассортимент товаров, который удовлетворит
+    самый взыскательный вкус потребителя.
+
+    Приобретая ТОВАР в нашей компании, вы приобретаете продукцию, которая независимо от своей стоимости и класса,
+    отвечает всем мировым стандартам качества.
+
+    Электронная почта: info@onlineStore.by
+
+</jsp:root>

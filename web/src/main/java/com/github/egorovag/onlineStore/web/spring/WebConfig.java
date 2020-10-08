@@ -1,8 +1,8 @@
 package com.github.egorovag.onlineStore.web.spring;
 
 
-
 import com.github.egorovag.onlineStore.service.config.ServiceConfig;
+import com.github.egorovag.onlineStore.web.controllers.GoToPage;
 import com.github.egorovag.onlineStore.web.controllers.Start;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,6 +29,11 @@ public class WebConfig {
     @Bean
     public Start start() {
         return new Start();
+    }
+
+    @Bean
+    public GoToPage goToPage() {
+        return new GoToPage();
     }
 
 
@@ -90,20 +95,20 @@ public class WebConfig {
         return tilesConfigurer;
     }
 
-//    @Bean
-//    public ReloadableResourceBundleMessageSource messageSource() {
-//        ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
-//        source.setBasename("classpath:i18n/messages");
-//        source.setDefaultEncoding("UTF-8");
-//        return source;
-//    }
+    @Bean
+    public ReloadableResourceBundleMessageSource messageSource() {
+        ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
+        source.setBasename("classpath:i18n/messages");
+        source.setDefaultEncoding("UTF-8");
+        return source;
+    }
 
-//    @Bean
-//    public CookieLocaleResolver localeResolver() {
-//        CookieLocaleResolver resolver = new CookieLocaleResolver();
-//        resolver.setDefaultLocale(Locale.forLanguageTag("en"));
-//        resolver.setCookieName("LocaleCookie");
-//        resolver.setCookieMaxAge(3600);
-//        return resolver;
-//    }
+    @Bean
+    public CookieLocaleResolver localeResolver() {
+        CookieLocaleResolver resolver = new CookieLocaleResolver();
+        resolver.setDefaultLocale(Locale.forLanguageTag("en"));
+        resolver.setCookieName("LocaleCookie");
+        resolver.setCookieMaxAge(3600);
+        return resolver;
+    }
 }

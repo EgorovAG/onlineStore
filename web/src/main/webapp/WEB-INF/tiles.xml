@@ -6,6 +6,7 @@
     <definition name="default" template="/WEB-INF/view/layouts/default.jspx">
         <!--        <put-attribute name="title" value="Web project"/>-->
         <put-attribute name="header" value="/WEB-INF/view/common/header.jspx"/>
+        <put-attribute name="sidebar" value="/WEB-INF/view/common/sidebar.jspx"/>
         <put-attribute name="body" value=""/>
         <put-attribute name="footer" value="/WEB-INF/view/common/footer.jspx"/>
     </definition>
@@ -14,9 +15,17 @@
         <put-attribute name="body" value="/WEB-INF/view/page/index.jspx"/>
     </definition>
 
-<!--    <definition name="blackListUsers" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/blackListUsers.jspx"/>-->
-<!--    </definition>-->
+    <definition name="shippingAndPayment" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/shippingAndPayment.jspx"/>
+    </definition>
+
+    <definition name="warranty" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/warranty.jspx"/>
+    </definition>
+
+    <definition name="aboutUS" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/aboutUs.jspx"/>
+    </definition>
 
 <!--    <definition name="registeredUsers" extends="default">-->
 <!--        <put-attribute name="body" value="/WEB-INF/view/page/registeredUsers.jspx"/>-->

@@ -8,12 +8,30 @@
         }
     </style>
 
-    <header class="clearfix">
-        Какой-то тут хедер еще не придумал
+    <header class="headerClass">
 
-<!--        <h1 style="text-align: center"><spring:message code="label.appName"/></h1>-->
-<!--        <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=ru" style="padding: 5px">RU</a>-->
-<!--        <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=en" style="padding: 5px">EN</a>-->
+        <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=ru" style="padding: 5px">RU</a>
+        <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=en" style="padding: 5px">EN</a>
+
+        <h1 style="text-align: center"><spring:message code="label.appName"/></h1>
+        <br/>
+
+        <div>
+            <form>
+                <button name="GoToHomePage" formaction="${pageContext.request.contextPath}/toHomePageJspx">
+                    <spring:message code="button.home"/></button>
+
+                <button name="GoToShippingAndPaymentPage"
+                        formaction="${pageContext.request.contextPath}/toShippingAndPaymentPageJspx">
+                    <spring:message code="button.shipAndPay"/></button>
+
+                <button name="GoToWarrantyPage" formaction="${pageContext.request.contextPath}/toWarrantyPageJspx">
+                    <spring:message code="button.warranty"/></button>
+
+                <button name="GoToAboutUsPage" formaction="${pageContext.request.contextPath}/toAboutUsPageJspx">
+                    <spring:message code="button.aboutUs"/></button>
+            </form>
+        </div>
 
     </header>
 
