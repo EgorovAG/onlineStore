@@ -5,19 +5,25 @@
           xmlns:c="http://java.sun.com/jsp/jstl/core"
           version="2.0">
 
-<!--    <br/>-->
-<!--    <br/>-->
-<!--    <br/>-->
-<!--    <fieldset>-->
-<!--        <form action="${pageContext.request.contextPath}/login">-->
-<!--            <button name="enter"><spring:message code="button.logIn"/></button>-->
-<!--        </form>-->
-<!--    </fieldset>-->
+    <br/>
+    <form>
+        <button name="GoToEntryPage" formaction="${pageContext.request.contextPath}/toEntryPageJspx">
+            <spring:message code="button.entry"/></button>
+    </form>
 
-<!--    <fieldset>-->
-<!--        <form action="${pageContext.request.contextPath}/toRegistrationJspx">-->
-<!--            <button name="registration"><spring:message code="button.registration"/></button>-->
-<!--        </form>-->
-<!--    </fieldset>-->
-sdfsdfsdfsd
+    <!--    <br/>-->
+    <!--    <br/>-->
+    <!--    <br/>-->
+    <!--    <fieldset>-->
+    <!--        <form action="${pageContext.request.contextPath}/login">-->
+    <!--            <button name="enter"><spring:message code="button.logIn"/></button>-->
+    <!--        </form>-->
+    <!--    </fieldset>-->
+
+    <!--    <fieldset>-->
+    <!--        <form action="${pageContext.request.contextPath}/toRegistrationJspx">-->
+    <!--            <button name="registration"><spring:message code="button.registration"/></button>-->
+    <!--        </form>-->
+    <!--    </fieldset>-->
+
 </jsp:root>

@@ -27,9 +27,9 @@
         <put-attribute name="body" value="/WEB-INF/view/page/aboutUs.jspx"/>
     </definition>
 
-<!--    <definition name="registeredUsers" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/registeredUsers.jspx"/>-->
-<!--    </definition>-->
+    <definition name="entry" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/entry.jspx"/>
+    </definition>
 
 <!--    <definition name="successfulPayment" extends="default">-->
 <!--        <put-attribute name="body" value="/WEB-INF/view/page/successfulPayment.jspx"/>-->
@@ -44,7 +44,7 @@
 <!--    </definition>-->
 
 <!--    <definition name="login" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/login.jspx"/>-->
+<!--        <put-attribute name="body" value="/WEB-INF/view/page/entry.jspx"/>-->
 <!--    </definition>-->
 
 <!--    <definition name="personalArea" extends="default">-->

@@ -18,8 +18,6 @@ public class GoToPage {
         return "shippingAndPayment";
     }
 
-
-
     @GetMapping("/toWarrantyPageJspx")
     public String toWarrantyPage() {
         return "warranty";
@@ -28,5 +26,10 @@ public class GoToPage {
     @GetMapping("/toAboutUsPageJspx")
     public String toAboutUsPage() {
         return "aboutUS";
+    }
+
+    @GetMapping("/toEntryPageJspx")
+    public String toEntryPage() {
+        return "entry";
     }
 }

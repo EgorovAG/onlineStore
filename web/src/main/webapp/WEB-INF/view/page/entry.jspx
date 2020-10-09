@@ -1,0 +1,26 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:s="http://www.springframework.org/tags/form"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+    <h3><spring:message code="label.enterLoginInformation"/></h3>
+    <form action="${pageContext.request.contextPath}/login" method="post">
+
+        <input id="login" type="text" name="login"/>
+        <label for="login"><spring:message code="button.login"/></label><br/>
+
+        <input id="password" type="password" name="password"/>
+        <label for="password"><spring:message code="button.password"/></label><br/>
+
+        <button name="entry"><spring:message code="button.entry"/></button>
+    </form>
+    <br/><br/>
+
+    <a href="${pageContext.request.contextPath}/toRegistrationJspx"><spring:message code="button.registration"/></a>
+    <c:if test="${error!=null}">
+        <p style="color: red"><spring:message code="${error}"/></p>
+    </c:if>
+
+</jsp:root>

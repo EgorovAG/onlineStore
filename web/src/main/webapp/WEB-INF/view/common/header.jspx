@@ -12,6 +12,7 @@
 
         <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=ru" style="padding: 5px">RU</a>
         <a href="${requestScope['javax.servlet.forward.request_uri']}?locale=en" style="padding: 5px">EN</a>
+        <br/>
 
         <h1 style="text-align: center"><spring:message code="label.appName"/></h1>
         <br/>
@@ -21,8 +22,7 @@
                 <button name="GoToHomePage" formaction="${pageContext.request.contextPath}/toHomePageJspx">
                     <spring:message code="button.home"/></button>
 
-                <button name="GoToShippingAndPaymentPage"
-                        formaction="${pageContext.request.contextPath}/toShippingAndPaymentPageJspx">
+                <button formaction="${pageContext.request.contextPath}/toShippingAndPaymentPageJspx">
                     <spring:message code="button.shipAndPay"/></button>
 
                 <button name="GoToWarrantyPage" formaction="${pageContext.request.contextPath}/toWarrantyPageJspx">
