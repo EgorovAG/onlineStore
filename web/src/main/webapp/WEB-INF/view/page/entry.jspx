@@ -8,11 +8,13 @@
     <h3><spring:message code="label.enterLoginInformation"/></h3>
     <form action="${pageContext.request.contextPath}/login" method="post">
 
-        <input id="login" type="text" name="login"/>
-        <label for="login"><spring:message code="button.login"/></label><br/>
+        <input id="login" type="text" name="login" placeholder="login"/>
+<!--        <label for="login"><spring:message code="button.login"/></label><br/>-->
+        <br/>
 
-        <input id="password" type="password" name="password"/>
-        <label for="password"><spring:message code="button.password"/></label><br/>
+        <input id="password" type="password" name="password" placeholder="password"/>
+<!--        <label for="password"><spring:message code="button.password"/></label><br/>-->
+        <br/>
 
         <button name="entry"><spring:message code="button.entry"/></button>
     </form>
