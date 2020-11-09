@@ -13,71 +13,100 @@
     <title>store</title>
 </head>
 <body>
+<!--<style>-->
+<!--    body {-->
+<!--        font-family: "Lato", sans-serif;-->
+<!--    }-->
+
+
+<!--    .header {-->
+<!--        width: 100%;-->
+<!--        height: 100px;-->
+<!--    }-->
+<!--    .sidebar {-->
+<!--        height: 70%;-->
+<!--        width: 160px;-->
+<!--        position: fixed;-->
+<!--        z-index: 1;-->
+<!--        top: 0;-->
+<!--        left: 0;-->
+<!--        background-color: #111;-->
+<!--        overflow-x: hidden;-->
+<!--        padding-top: 20px;-->
+<!--    }-->
+
+<!--    .sidebar a {-->
+<!--        padding: 6px 8px 6px 16px;-->
+<!--        text-decoration: none;-->
+<!--        font-size: 25px;-->
+<!--        color: #818181;-->
+<!--        display: block;-->
+<!--    }-->
+
+<!--    .sidebar a:hover {-->
+<!--        color: #f1f1f1;-->
+<!--    }-->
+
+<!--    .content {-->
+<!--        margin-left: 160px; /* Same as the width of the sidenav */-->
+<!--        font-size: 28px; /* Increased text to enable scrolling */-->
+<!--        padding: 0px 10px;-->
+<!--    }-->
+
+<!--    @media screen and (max-height: 450px) {-->
+<!--        .sidebar {padding-top: 15px;}-->
+<!--        .sidebar a {font-size: 18px;}-->
+<!--    }-->
+
+<!--    .footer {-->
+<!--        width: 100%;-->
+<!--        background: white;-->
+<!--        height: 50px;-->
+<!--        clear: both;-->
+<!--    }-->
+<!--</style>-->
+
 <style>
-    body {
-        margin: 0;
-        font-family: "Lato", sans-serif;
+    .header {
+        width: 100%;
+        background: darkgray;
+        height:20%;
+    }
+
+    .content {
+        width: 80%;
+        background: snow;
+        height: 70%;
+        float: right;
     }
 
     .sidebar {
-        margin: 0;
-        padding: 0;
-        width: 200px;
-        background-color: #f1f1f1;
+        width: 20%;
+        background-color: burlywood;
+        height: 70%;
+        float: left;
+    }
+
+    .sidebar.fixed {
+        width: 20%;
         position: fixed;
-        height: 100%;
-        overflow: auto;
+        left: 50%;
+        margin-right: 50%;
     }
 
-    .sidebar a {
-        display: block;
-        color: black;
-        padding: 16px;
-        text-decoration: none;
-    }
-
-    .sidebar a.active {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    .sidebar a:hover:not(.active) {
-        background-color: #555;
-        color: white;
-    }
-
-    div.content {
-        margin-left: 200px;
-        padding: 1px 16px;
-        height: 1000px;
-    }
-
-    @media screen and (max-width: 700px) {
-        .sidebar {
-            width: 100%;
-            height: auto;
-            position: relative;
-        }
-
-        .sidebar a {
-            float: left;
-        }
-
-        div.content {
-            margin-left: 0;
-        }
-    }
-
-    @media screen and (max-width: 400px) {
-        .sidebar a {
-            text-align: center;
-            float: none;
-        }
+    .footer {
+        width: 100%;
+        background: white;
+        height: 10%;
+        clear: both;
     }
 </style>
 
+<div class="header">
+    <tiles:insertAttribute name="header"/>
+</div>
 
-<tiles:insertAttribute name="header"/>
+
 <div class="sidebar">
     <tiles:insertAttribute name="sidebar"/>
 </div>
@@ -86,7 +115,10 @@
     <tiles:insertAttribute name="body"/>
 </div>
 
-<tiles:insertAttribute name="footer"/>
+<div class="footer">
+    <tiles:insertAttribute name="footer"/>
+</div>
+
 
 </body>
 </html>

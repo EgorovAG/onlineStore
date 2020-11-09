@@ -1,6 +1,5 @@
 package com.github.egorovag.onlineStore.dao.entity;
 
-import com.github.egorovag.onlineStore.model.OrderOfGoods;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
@@ -89,3 +88,4 @@ public class UserEntity {
         this.orderOfGoodsEntityList = orderOfGoodsEntityList;
     }
 }
+
