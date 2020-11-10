@@ -7,6 +7,9 @@ public class Product {
     private int price;
     private int quantity;
 
+    public Product(int i, String s, String asd, int i1) {
+    }
+
     public Product(long id, String name, String description, int price, int quantity) {
     }
 
