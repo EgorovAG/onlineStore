@@ -11,7 +11,7 @@ public class DefaultProductDao implements ProductDao {
     public List<Product> getProductByNameDao() {
 
         List<Product> products = new ArrayList<>();
-        Product product = new Product(1," qwe", "asd", 5);
+        Product product = new Product(1," qwe", "asd", 5, 10);
         products.add(product);
 
         return products;

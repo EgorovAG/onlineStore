@@ -6,7 +6,13 @@
     <!--    <sidebar class="newSideBar">-->
     <div class="sidebar">
         <h3><spring:message code="label.catalog"/></h3>
-        <a class="active" href="#home"><spring:message code="label.faucets"/></a>
+        <div>
+            <form name="product" action="${pageContext.request.contextPath}/catalog/product" method="post">
+                <button name="product" value="faucets"><spring:message code="label.faucets"/></button>
+            </form>
+
+        </div>
+<!--        <a class="active" href="#home"><spring:message code="label.faucets"/></a>-->
         <br/>
         <a href="${pageContext.request.contextPath}/logout"><spring:message code="label.showers"/></a>
         <br/>

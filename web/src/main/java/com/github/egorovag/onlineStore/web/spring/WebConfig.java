@@ -2,6 +2,7 @@ package com.github.egorovag.onlineStore.web.spring;
 
 
 import com.github.egorovag.onlineStore.service.config.ServiceConfig;
+import com.github.egorovag.onlineStore.web.controllers.Catalog;
 import com.github.egorovag.onlineStore.web.controllers.GoToPage;
 import com.github.egorovag.onlineStore.web.controllers.Start;
 import org.springframework.context.annotation.Bean;
@@ -34,6 +35,11 @@ public class WebConfig {
     @Bean
     public GoToPage goToPage() {
         return new GoToPage();
+    }
+
+    @Bean
+    public Catalog getProduct() {
+        return new Catalog();
     }
 
 

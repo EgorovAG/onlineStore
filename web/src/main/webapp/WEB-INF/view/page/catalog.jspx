@@ -12,7 +12,6 @@
         <table border="1" width="100%" cellpadding="5">
             <tr>
                 <th>№</th>
-                <th>№</th>
                 <th><spring:message code="label.name"/></th>
                 <th><spring:message code="label.description"/></th>
                 <th><spring:message code="label.price"/></th>
@@ -20,10 +19,11 @@
             </tr>
 
             <c:set var="x" value="1"/>
-            <c:forEach var="orderForAdmins" items="${products}">
+            <c:forEach var="products" items="${products}">
                 <tr>
                     <td><c:out value="${x}"/>
                         <c:set var="x" value="${x+1}"/></td>
+
                     <td>${products.name}</td>
                     <td>${products.description}</td>
                     <td>${products.price}</td>
