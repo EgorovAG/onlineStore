@@ -14,7 +14,7 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
-    public List<Product> getProductByNameService() {
-        return productDao.getProductByNameDao();
+    public List<Product> getProductByNameService(String name) {
+        return productDao.getProductByNameDao(name);
     }
 }

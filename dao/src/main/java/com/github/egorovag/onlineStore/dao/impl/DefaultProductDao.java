@@ -8,11 +8,9 @@ import java.util.List;
 
 public class DefaultProductDao implements ProductDao {
     @Override
-    public List<Product> getProductByNameDao() {
+    public List<Product> getProductByNameDao(String name) {
 
         List<Product> products = new ArrayList<>();
-        Product product = new Product(1," qwe", "asd", 5, 10);
-        products.add(product);
 
         return products;
     }

@@ -5,5 +5,5 @@ import com.github.egorovag.onlineStore.model.Product;
 import java.util.List;
 
 public interface ProductDao {
-    List<Product> getProductByNameDao();
+    List<Product> getProductByNameDao(String name);
 }

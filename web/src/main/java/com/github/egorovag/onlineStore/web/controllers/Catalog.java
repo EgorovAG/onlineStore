@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,19 +19,15 @@ import java.util.List;
 public class Catalog {
     private static final Logger log = LoggerFactory.getLogger(Catalog.class);
     ProductService productService;
-    Product product = new Product(1, "qwe", "asd", 10, 5);
 
     @PostMapping("/product")
-    public String getProduct(Model model) throws IOException {
-//        List<Product> products = productService.getProductByNameService();
-//        if (products == null || products.isEmpty()) {
-//            model.addAttribute("products", null);
-//        } else {
-//            model.addAttribute("products", products);
-//        }
-        List<Product> products = new ArrayList<>();
-        System.out.println(product.getDescription());
-        model.addAttribute("products", products);
+    public String getProduct(@RequestParam(value = "product") String product , Model model) {
+        List<Product> products = productService.getProductByNameService(product);
+        if (products == null || products.isEmpty()) {
+            model.addAttribute("products", null);
+        } else {
+            model.addAttribute("products", products);
+        }
         return "catalog";
     }
 }
