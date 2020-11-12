@@ -17,7 +17,16 @@ public class OrderOfGoods {
     public OrderOfGoods() {
     }
 
-    public OrderOfGoods(long id, long user_id, long product_id, LocalDate dateOrder, int quantityOrder, OrderStatus orderStatus, String deliveryAddress, LocalDate deliveryDate) {
+    public OrderOfGoods(long id, long user_id, long product_id, LocalDate dateOrder, int quantityOrder,
+                        OrderStatus orderStatus, String deliveryAddress, LocalDate deliveryDate) {
+        this.id = id;
+        this.user_id = user_id;
+        this.product_id = product_id;
+        this.dateOrder = dateOrder;
+        this.quantityOrder = quantityOrder;
+        this.orderStatus = orderStatus;
+        this.deliveryAddress = deliveryAddress;
+        this.deliveryDate = deliveryDate;
     }
 
     public long getId() {

@@ -24,6 +24,24 @@ public class OrderOfGoodsEntity {
     private UserEntity userEntity;
     private ProductEntity productEntity;
 
+    public OrderOfGoodsEntity() {
+    }
+
+    public OrderOfGoodsEntity(long id, long user_id, long product_id, LocalDate dateOrder,
+                              int quantityOrder, OrderStatus orderStatus, String deliveryAddress,
+                              LocalDate deliveryDate, UserEntity userEntity, ProductEntity productEntity) {
+        this.id = id;
+        this.user_id = user_id;
+        this.product_id = product_id;
+        this.dateOrder = dateOrder;
+        this.quantityOrder = quantityOrder;
+        this.orderStatus = orderStatus;
+        this.deliveryAddress = deliveryAddress;
+        this.deliveryDate = deliveryDate;
+        this.userEntity = userEntity;
+        this.productEntity = productEntity;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

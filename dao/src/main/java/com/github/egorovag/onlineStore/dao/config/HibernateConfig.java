@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @Import(SettingsConfig.class)
-//@EnableJpaRepositories(basePackages = "com.github.egorovag.onlineStore.dao.repository")
+@EnableJpaRepositories(basePackages = "com.github.egorovag.onlineStore.dao.repository")
 public class HibernateConfig {
 
     private final SettingsConfig settingsConfig;
