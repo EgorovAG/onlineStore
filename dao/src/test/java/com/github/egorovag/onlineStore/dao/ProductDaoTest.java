@@ -35,7 +35,7 @@ class ProductDaoTest {
     void testGetProductByNameDao() {
         List<Product> products = productDao.getProductByNameDao("alex");
 //        Assertions.assertEquals("alex", products.get(0).getName());
-        Assertions.assertEquals(1, products.size());
+        Assertions.assertEquals(5, products.get(0).getPrice());
     }
 
 //    @Test

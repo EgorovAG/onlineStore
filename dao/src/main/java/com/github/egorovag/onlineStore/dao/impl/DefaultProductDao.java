@@ -24,8 +24,6 @@ public class DefaultProductDao implements ProductDao {
         try {
             List<ProductEntity> productsEntities = productJpaRepository.findByName(name);
             log.info("Product with name: {} read", name);
-//            List<Product> productsEntities = new ArrayList<>();
-//            products.add(new Product(1,"alex","qwe", 50, 5));
             return productsEntities.stream()
                     .map(ProductConverter::fromEntity)
                     .collect(Collectors.toList());

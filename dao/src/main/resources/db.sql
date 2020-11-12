@@ -57,7 +57,9 @@ create table IF NOT EXISTS orderOfGoods
     quantityOrder   int          not null,
     orderStatus     varchar(250) not null,
     deliveryAddress varchar(250) not null,
-    deliveryDate    DATE         not null
+    deliveryDate    DATE         not null,
+    constraint orderOfGoods_user_id_FK foreign key (user_id) references user (id),
+    constraint orderOfGoods_product_id_FK foreign key (product_id) references product (id)
 );
 
 # ----------------------------------------.

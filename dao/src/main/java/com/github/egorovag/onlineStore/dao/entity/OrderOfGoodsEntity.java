@@ -89,7 +89,8 @@ public class OrderOfGoodsEntity {
         this.quantityOrder = quantityOrder;
     }
 
-    @Column
+    @Enumerated(EnumType.STRING)
+    @Column(name = "orderStatus")
     public OrderStatus getOrderStatus() {
         return orderStatus;
     }
