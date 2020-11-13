@@ -7,46 +7,70 @@
     <div class="sidebar">
         <h3><spring:message code="label.catalog"/></h3>
         <div>
-            <form name="product" action="${pageContext.request.contextPath}/catalog/product" method="post">
-                <button name="product" value="faucets"><spring:message code="label.faucets"/></button>
+            <form name="product" action="${pageContext.request.contextPath}/catalog/product">
+                <button name="product" value="faucet"><spring:message code="label.faucets"/></button>
             </form>
-
         </div>
-<!--        <a class="active" href="#home"><spring:message code="label.faucets"/></a>-->
-        <br/>
-        <a href="${pageContext.request.contextPath}/logout"><spring:message code="label.showers"/></a>
-        <br/>
-        <a href="#contact"><spring:message code="label.toiletBowls"/></a>
-        <br/>
-        <a href="#about"><spring:message code="label.washbasins"/></a>
-        <br/>
-        <a href="#about"><spring:message code="label.kitchenSinks"/></a>
-        <br/>
-        <a href="#about"><spring:message code="label.waterFilters"/></a>
+        <div>
+            <form name="product" action="${pageContext.request.contextPath}/catalog/product">
+                <button name="product" value="shower"><spring:message code="label.showers"/></button>
+            </form>
+        </div>
+        <div>
+            <form name="product" action="${pageContext.request.contextPath}/catalog/product" >
+                <button name="product" value="toiletBowls"><spring:message code="label.toiletBowls"/></button>
+            </form>
+        </div>
+        <div>
+            <form name="product" action="${pageContext.request.contextPath}/catalog/product" >
+                <button name="product" value="washBasins"><spring:message code="label.washbasins"/></button>
+            </form>
+        </div>
+        <div>
+            <form name="product" action="${pageContext.request.contextPath}/catalog/product" >
+                <button name="product" value="kitchenSinks"><spring:message code="label.kitchenSinks"/></button>
+            </form>
+        </div>
+        <div>
+            <form name="product" action="${pageContext.request.contextPath}/catalog/product" >
+                <button name="product" value="waterFilters"><spring:message code="label.waterFilters"/></button>
+            </form>
+        </div>
+        <!--        <a class="active" href="#home"><spring:message code="label.faucets"/></a>-->
+<!--        <br/>-->
+<!--        <a href="${pageContext.request.contextPath}/logout"><spring:message code="label.showers"/></a>-->
+<!--        <br/>-->
+<!--        <a href="#contact"><spring:message code="label.toiletBowls"/></a>-->
+<!--        <br/>-->
+<!--        <a href="#about"><spring:message code="label.washbasins"/></a>-->
+<!--        <br/>-->
+<!--        <a href="#about"><spring:message code="label.kitchenSinks"/></a>-->
+<!--        <br/>-->
+<!--        <a href="#about"><spring:message code="label.waterFilters"/></a>-->
 
         <!--        <br/>-->
-<!--        <h4> Отзывы и предложения</h4>-->
-<!--        <br/>-->
-<!--        Анатолий-->
-<!--        Огромный выбор товаров. Сегодня сделал заказ,-->
-<!--        на следующий день он уже был на почте.-->
-<!--        Всем рекомендую!-->
-<!--        <br/>-->
-<!--        Настя-->
-<!--        Заказала себе смеситель для кухни. Всё пришло-->
-<!--        в целостности и сохранности.-->
-<!--        Спасибо!-->
-<!--        <br/>-->
-<!--        Владимир Аликинов-->
-<!--        Выражаю благодарность сотрудникам интернет-магазина.-->
-<!--        Заказ был выполнен качественно и в указанный срок.-->
-<!--        С уважением, Владимир Аликинов.-->
-<!--        <br/>-->
-<!--        Руслан Пашкевич-->
-<!--        Мы заказывали один смеситель для кухни и один для ванны.-->
-<!--        Доставили в этот же вечер. Курьер Сергей был вежлив и-->
-<!--        внимательно все объяснил. Мы всем довольны и намерены-->
-<!--        опять заказывать в этом магазине.-->
+        <!--        <h4> Отзывы и предложения</h4>-->
+        <!--        <br/>-->
+        <!--        Анатолий-->
+        <!--        Огромный выбор товаров. Сегодня сделал заказ,-->
+        <!--        на следующий день он уже был на почте.-->
+        <!--        Всем рекомендую!-->
+        <!--        <br/>-->
+        <!--        Настя-->
+        <!--        Заказала себе смеситель для кухни. Всё пришло-->
+        <!--        в целостности и сохранности.-->
+        <!--        Спасибо!-->
+        <!--        <br/>-->
+        <!--        Владимир Аликинов-->
+        <!--        Выражаю благодарность сотрудникам интернет-магазина.-->
+        <!--        Заказ был выполнен качественно и в указанный срок.-->
+        <!--        С уважением, Владимир Аликинов.-->
+        <!--        <br/>-->
+        <!--        Руслан Пашкевич-->
+        <!--        Мы заказывали один смеситель для кухни и один для ванны.-->
+        <!--        Доставили в этот же вечер. Курьер Сергей был вежлив и-->
+        <!--        внимательно все объяснил. Мы всем довольны и намерены-->
+        <!--        опять заказывать в этом магазине.-->
     </div>
 
     <!--    </sidebar>-->
