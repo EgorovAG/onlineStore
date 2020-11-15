@@ -34,4 +34,14 @@ public class Catalog {
         }
         return "catalog";
     }
+    @GetMapping("/view")
+    public String getProduct(@RequestParam(value = "view") Long id , Model model) {
+        Product product = productService.getProductByIDService(id);
+        if (product.equals(null)) {
+            model.addAttribute("product", null);
+        } else {
+            model.addAttribute("product", product);
+        }
+        return "productView";
+    }
 }

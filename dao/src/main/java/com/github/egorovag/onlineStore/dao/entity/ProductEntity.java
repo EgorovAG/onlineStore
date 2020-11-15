@@ -1,5 +1,6 @@
 package com.github.egorovag.onlineStore.dao.entity;
 
+import com.github.egorovag.onlineStore.model.enums.ProductName;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @Table(name = "product")
 public class ProductEntity {
     private long id;
+    private ProductName productName;
     private String name;
     private String description;
     private int price;
@@ -30,6 +32,16 @@ public class ProductEntity {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    public ProductName getProductName() {
+        return productName;
+    }
+
+    public void setProductName(ProductName productName) {
+        this.productName = productName;
     }
 
     @Column

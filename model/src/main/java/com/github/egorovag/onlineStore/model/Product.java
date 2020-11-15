@@ -1,9 +1,13 @@
 package com.github.egorovag.onlineStore.model;
 
+import com.github.egorovag.onlineStore.model.enums.ProductName;
+import org.springframework.stereotype.Component;
+
 import java.util.Objects;
 
 public class Product {
     private long id;
+    private ProductName productName;
     private String name;
     private String description;
     private int price;
@@ -12,8 +16,9 @@ public class Product {
     public Product() {
     }
 
-    public Product(long id, String name, String description, int price, int quantity) {
+    public Product(long id, ProductName productName, String name, String description, int price, int quantity) {
         this.id = id;
+        this.productName = productName;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -26,6 +31,14 @@ public class Product {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public ProductName getProductName() {
+        return productName;
+    }
+
+    public void setProductName(ProductName productName) {
+        this.productName = productName;
     }
 
     public String getName() {

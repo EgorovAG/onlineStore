@@ -16,6 +16,7 @@
                 <th><spring:message code="label.description"/></th>
                 <th><spring:message code="label.price"/></th>
                 <th><spring:message code="label.quantity"/></th>
+                <th></th>
             </tr>
 
             <c:set var="x" value="1"/>
@@ -28,6 +29,11 @@
                     <td>${products.description}</td>
                     <td>${products.price}</td>
                     <td>${products.quantity}</td>
+                    <td>
+                        <form name="view" action="${pageContext.request.contextPath}/catalog/view" >
+                            <button name="view" value="${products.id}"><spring:message code="button.view"/></button>
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

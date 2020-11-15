@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class DefaultProductDao implements ProductDao {
@@ -28,11 +29,46 @@ public class DefaultProductDao implements ProductDao {
                     .map(ProductConverter::fromEntity)
                     .collect(Collectors.toList());
         } catch (Exception e) {
-            log.info("Fail to read product with name: {}", name, e);
+            log.error("Fail to read product with name: {}", name, e);
             return null;
-//            orderClientEntities.stream()
-//                    .map(OrderClientConverter::fromEntity)
-//                    .collect(Collectors.toList());
+        }
+    }
+
+    @Override
+    public Product getProductByIdDao(Long id) {
+        try {
+            Optional<ProductEntity> optionalProductEntity = productJpaRepository.findById(id);
+            ProductEntity productEntity = optionalProductEntity.get();
+            log.info("Product with id: {} read", id);
+            return ProductConverter.fromEntity(productEntity);
+        } catch (Exception e) {
+            log.error("Fail to read product with id: {}", id);
+            return null;
+        }
+    }
+
+    @Override
+    public void saveProductDao(Product product) {
+        try {
+            ProductEntity productEntity = ProductConverter.toEntity(product);
+            ProductJpaRepository productJpaRepository = this.productJpaRepository;
+            productJpaRepository.save(productEntity);
+            log.info("Product with name: {} saved", product.getName());
+
+        } catch (Exception e) {
+            log.error("Fail to save product with name: {}", product.getName());
+        }
+    }
+
+    @Override
+    public boolean deleteProductByIdDao(Long id) {
+        try {
+            productJpaRepository.deleteById(id);
+            log.info("Product with id: {} deleted", id);
+            return true;
+        } catch (Exception e) {
+            log.error("Fail to delete product with id: {}", id);
+            return false;
         }
     }
 }

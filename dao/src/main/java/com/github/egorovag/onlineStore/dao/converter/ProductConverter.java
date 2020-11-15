@@ -10,6 +10,7 @@ public class ProductConverter {
         }
         return new Product(
                 productEntity.getId(),
+                productEntity.getProductName(),
                 productEntity.getName(),
                 productEntity.getDescription(),
                 productEntity.getPrice(),
@@ -22,6 +23,7 @@ public class ProductConverter {
         }
         final ProductEntity productEntity = new ProductEntity();
         productEntity.setId(product.getId());
+        productEntity.setProductName(product.getProductName());
         productEntity.setName(product.getName());
         productEntity.setDescription(product.getDescription());
         productEntity.setPrice(product.getPrice());

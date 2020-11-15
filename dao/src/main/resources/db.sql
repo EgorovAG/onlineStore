@@ -38,6 +38,7 @@ create table IF NOT EXISTS authUser
 create table IF NOT EXISTS product
 (
     id          bigint auto_increment PRIMARY KEY,
+    productName varchar(250) not null,
     name        varchar(150) not null,
     description varchar(150) not null,
     price       int          not null,
