@@ -7,33 +7,33 @@
     <div class="sidebar">
         <h3><spring:message code="label.catalog"/></h3>
         <div>
-            <form name="product" action="${pageContext.request.contextPath}/catalog/product">
-                <button name="product" value="faucet"><spring:message code="label.faucets"/></button>
+            <form name="productName" action="${pageContext.request.contextPath}/catalog/product">
+                <button name="productName" value="Faucets"><spring:message code="label.faucets"/></button>
             </form>
         </div>
         <div>
-            <form name="product" action="${pageContext.request.contextPath}/catalog/product">
-                <button name="product" value="shower"><spring:message code="label.showers"/></button>
+            <form name="productName" action="${pageContext.request.contextPath}/catalog/product">
+                <button name="productName" value="Showers"><spring:message code="label.showers"/></button>
             </form>
         </div>
         <div>
-            <form name="product" action="${pageContext.request.contextPath}/catalog/product" >
-                <button name="product" value="toiletBowls"><spring:message code="label.toiletBowls"/></button>
+            <form name="productName" action="${pageContext.request.contextPath}/catalog/product" >
+                <button name="productName" value="ToiletBowls"><spring:message code="label.toiletBowls"/></button>
             </form>
         </div>
         <div>
-            <form name="product" action="${pageContext.request.contextPath}/catalog/product" >
-                <button name="product" value="washBasins"><spring:message code="label.washbasins"/></button>
+            <form name="productName" action="${pageContext.request.contextPath}/catalog/product" >
+                <button name="productName" value="WashBasins"><spring:message code="label.washbasins"/></button>
             </form>
         </div>
         <div>
-            <form name="product" action="${pageContext.request.contextPath}/catalog/product" >
-                <button name="product" value="kitchenSinks"><spring:message code="label.kitchenSinks"/></button>
+            <form name="productName" action="${pageContext.request.contextPath}/catalog/product" >
+                <button name="productName" value="KitchenSinks"><spring:message code="label.kitchenSinks"/></button>
             </form>
         </div>
         <div>
-            <form name="product" action="${pageContext.request.contextPath}/catalog/product" >
-                <button name="product" value="waterFilters"><spring:message code="label.waterFilters"/></button>
+            <form name="productName" action="${pageContext.request.contextPath}/catalog/product" >
+                <button name="productName" value="WaterFilters"><spring:message code="label.waterFilters"/></button>
             </form>
         </div>
         <!--        <a class="active" href="#home"><spring:message code="label.faucets"/></a>-->

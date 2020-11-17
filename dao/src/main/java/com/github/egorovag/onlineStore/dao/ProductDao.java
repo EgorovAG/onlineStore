@@ -1,11 +1,12 @@
 package com.github.egorovag.onlineStore.dao;
 
 import com.github.egorovag.onlineStore.model.Product;
+import com.github.egorovag.onlineStore.model.enums.ProductName;
 
 import java.util.List;
 
 public interface ProductDao {
-    List<Product> getProductByNameDao(String name);
+    List<Product> getProductByProductNameDao(ProductName productName);
 
     Product getProductByIdDao(Long id);
 

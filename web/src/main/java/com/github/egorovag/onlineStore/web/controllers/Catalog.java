@@ -1,6 +1,7 @@
 package com.github.egorovag.onlineStore.web.controllers;
 
 import com.github.egorovag.onlineStore.model.Product;
+import com.github.egorovag.onlineStore.model.enums.ProductName;
 import com.github.egorovag.onlineStore.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +26,8 @@ public class Catalog {
     private ProductService productService;
 
     @GetMapping("/product")
-    public String getProduct(@RequestParam(value = "product") String product , Model model) {
-       List<Product> products = productService.getProductByNameService(product);
+    public String getProduct(@RequestParam(value = "productName") String productName , Model model) {
+       List<Product> products = productService.getProductByProductNameService(ProductName.valueOf(productName));
         if (products == null || products.isEmpty()) {
             model.addAttribute("products", null);
         } else {

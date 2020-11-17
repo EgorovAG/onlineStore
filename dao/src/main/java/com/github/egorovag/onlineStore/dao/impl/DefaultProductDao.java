@@ -5,6 +5,7 @@ import com.github.egorovag.onlineStore.dao.converter.ProductConverter;
 import com.github.egorovag.onlineStore.dao.entity.ProductEntity;
 import com.github.egorovag.onlineStore.dao.repository.ProductJpaRepository;
 import com.github.egorovag.onlineStore.model.Product;
+import com.github.egorovag.onlineStore.model.enums.ProductName;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +22,15 @@ public class DefaultProductDao implements ProductDao {
     private ProductJpaRepository productJpaRepository;
 
     @Override
-    public List<Product> getProductByNameDao(String name) {
+    public List<Product> getProductByProductNameDao(ProductName productName) {
         try {
-            List<ProductEntity> productsEntities = productJpaRepository.findByName(name);
-            log.info("Product with name: {} read", name);
+            List<ProductEntity> productsEntities = productJpaRepository.findByProductName(productName);
+            log.info("Product with name: {} read", productName);
             return productsEntities.stream()
                     .map(ProductConverter::fromEntity)
                     .collect(Collectors.toList());
         } catch (Exception e) {
-            log.error("Fail to read product with name: {}", name, e);
+            log.error("Fail to read product with name: {}", productName, e);
             return null;
         }
     }

@@ -4,6 +4,7 @@ package com.github.egorovag.onlineStore.dao;
 import com.github.egorovag.onlineStore.dao.ProductDao;
 import com.github.egorovag.onlineStore.dao.config.DaoConfig;
 import com.github.egorovag.onlineStore.model.Product;
+import com.github.egorovag.onlineStore.model.enums.ProductName;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,9 +34,9 @@ class ProductDaoTest {
 
     @Test
     void testGetProductByNameDao() {
-        List<Product> products = productDao.getProductByNameDao("alex");
+        List<Product> products = productDao.getProductByProductNameDao(ProductName.Faucets);
 //        Assertions.assertEquals("alex", products.get(0).getName());
-        Assertions.assertEquals(5, products.get(0).getPrice());
+        Assertions.assertEquals(ProductName.Faucets, products.get(0).getProductName());
     }
 
 //    @Test
