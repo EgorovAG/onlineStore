@@ -3,6 +3,7 @@ package com.github.egorovag.onlineStore.web.spring;
 
 import com.github.egorovag.onlineStore.service.config.ServiceConfig;
 import com.github.egorovag.onlineStore.web.controllers.Catalog;
+import com.github.egorovag.onlineStore.web.controllers.CookieController;
 import com.github.egorovag.onlineStore.web.controllers.GoToPage;
 import com.github.egorovag.onlineStore.web.controllers.Start;
 import org.springframework.context.annotation.Bean;
@@ -38,8 +39,13 @@ public class WebConfig {
     }
 
     @Bean
-    public Catalog getProduct() {
-        return new Catalog();
+    public Catalog catalog() {
+        return new Catalog(serviceConfig.productService());
+    }
+
+    @Bean
+    public CookieController cookieController() {
+        return new CookieController();
     }
 
 

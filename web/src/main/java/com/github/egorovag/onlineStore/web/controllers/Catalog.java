@@ -22,12 +22,15 @@ import java.util.List;
 public class Catalog {
     private static final Logger log = LoggerFactory.getLogger(Catalog.class);
 
-    @Autowired
     private ProductService productService;
 
+    public Catalog(ProductService productService) {
+        this.productService = productService;
+    }
+
     @GetMapping("/product")
-    public String getProduct(@RequestParam(value = "productName") String productName , Model model) {
-       List<Product> products = productService.getProductByProductNameService(ProductName.valueOf(productName));
+    public String getProductByName(@RequestParam(value = "productName") String productName, Model model) {
+        List<Product> products = productService.getProductByProductNameService(ProductName.valueOf(productName));
         if (products == null || products.isEmpty()) {
             model.addAttribute("products", null);
         } else {
@@ -35,8 +38,9 @@ public class Catalog {
         }
         return "catalog";
     }
+
     @GetMapping("/view")
-    public String getProduct(@RequestParam(value = "view") Long id , Model model) {
+    public String getProductById(@RequestParam(value = "view") Long id, Model model) {
         Product product = productService.getProductByIDService(id);
         if (product.equals(null)) {
             model.addAttribute("product", null);
