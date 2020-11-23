@@ -6,10 +6,7 @@
           version="2.0">
 
     <br/>
-    <form>
-        <button name="GoToEntryPage" formaction="${pageContext.request.contextPath}/toEntryPageJspx">
-            <spring:message code="button.entry"/></button>
-    </form>
+
 
     <br/>
     dfsaf

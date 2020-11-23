@@ -17,6 +17,12 @@
         <h1 style="text-align: center"><spring:message code="label.appName"/></h1>
         <br/>
 
+        <form>
+            <button name="GoToEntryPage" formaction="${pageContext.request.contextPath}/toEntryPageJspx">
+                <spring:message code="button.entry"/></button>
+        </form>
+        <br/>
+
         <div>
             <form>
                 <button name="GoToHomePage" formaction="${pageContext.request.contextPath}/toHomePageJspx">

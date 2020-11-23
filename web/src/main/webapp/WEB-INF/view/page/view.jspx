@@ -17,7 +17,7 @@
                 <spring:message code="label.productNo"/>
             </c:when>
             <c:otherwise>
-                <form name="order" action="${pageContext.request.contextPath}/catalog/order" >
+                <form name="order" action="${pageContext.request.contextPath}/catalog/order" method="post" >
                     <button name="order" value="${product.id}"><spring:message code="button.buy"/></button>
                 </form>
 

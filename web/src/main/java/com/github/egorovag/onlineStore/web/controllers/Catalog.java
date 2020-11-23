@@ -50,5 +50,16 @@ public class Catalog {
         return "productView";
     }
 
+    @PostMapping("/order")
+    public String setProductById(@RequestParam(value = "order") Long id, Model model) {
+        Product product = productService.setProductByIDService(id);
+        if (product.equals(null)) {
+            model.addAttribute("product", null);
+        } else {
+            model.addAttribute("product", product);
+        }
+        return "productView";
+    }
+
 
 }
