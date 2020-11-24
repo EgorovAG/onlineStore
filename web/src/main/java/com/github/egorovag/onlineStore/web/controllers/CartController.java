@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/order")
-public class Cart {
-    private static final Logger log = LoggerFactory.getLogger(Cart.class);
+public class CartController {
+    private static final Logger log = LoggerFactory.getLogger(CartController.class);
 
     @PostMapping
     public String setOrderOfGoods(Model model){

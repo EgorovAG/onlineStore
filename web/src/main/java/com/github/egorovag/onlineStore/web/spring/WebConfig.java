@@ -2,14 +2,13 @@ package com.github.egorovag.onlineStore.web.spring;
 
 
 import com.github.egorovag.onlineStore.service.config.ServiceConfig;
-import com.github.egorovag.onlineStore.web.controllers.Catalog;
+import com.github.egorovag.onlineStore.web.controllers.CatalogController;
 import com.github.egorovag.onlineStore.web.controllers.CookieController;
 import com.github.egorovag.onlineStore.web.controllers.GoToPage;
 import com.github.egorovag.onlineStore.web.controllers.Start;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
@@ -39,8 +38,8 @@ public class WebConfig {
     }
 
     @Bean
-    public Catalog catalog() {
-        return new Catalog(serviceConfig.productService());
+    public CatalogController catalog() {
+        return new CatalogController(serviceConfig.productService());
     }
 
     @Bean

@@ -4,6 +4,7 @@ import com.github.egorovag.onlineStore.dao.ProductDao;
 import com.github.egorovag.onlineStore.model.Product;
 import com.github.egorovag.onlineStore.model.enums.ProductName;
 import com.github.egorovag.onlineStore.service.ProductService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,11 +16,13 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
+    @Transactional
     public List<Product> getProductByProductNameService(ProductName productName) {
         return productDao.getProductByProductNameDao(productName);
     }
 
     @Override
+    @Transactional
     public Product getProductByIDService(Long id) {
         return productDao.getProductByIdDao(id);
     }
