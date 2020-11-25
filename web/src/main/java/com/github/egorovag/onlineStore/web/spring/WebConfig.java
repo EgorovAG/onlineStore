@@ -2,10 +2,7 @@ package com.github.egorovag.onlineStore.web.spring;
 
 
 import com.github.egorovag.onlineStore.service.config.ServiceConfig;
-import com.github.egorovag.onlineStore.web.controllers.CatalogController;
-import com.github.egorovag.onlineStore.web.controllers.CookieController;
-import com.github.egorovag.onlineStore.web.controllers.GoToPage;
-import com.github.egorovag.onlineStore.web.controllers.Start;
+import com.github.egorovag.onlineStore.web.controllers.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -47,21 +44,26 @@ public class WebConfig {
         return new CookieController();
     }
 
+    @Bean
+    public CartController cartController() {
+        return new CartController();
+    }
+
+    @Bean
+    public LoginController loginServlet() {
+        return new LoginController(serviceConfig.authUserService(), serviceConfig.userService());
+    }
+
+    @Bean
+    public LogoutController logoutServlet() {
+        return new LogoutController();
+    }
+
 
 //    @Bean
 //    public OrderController clientOrderServlet() {
 //        return new OrderController(serviceConfig.orderService(), serviceConfig.roomService(),
 //                serviceConfig.serviceHotelService());
-//    }
-//
-//    @Bean
-//    public LoginController loginServlet() {
-//        return new LoginController(serviceConfig.authUserService(), serviceConfig.blackListService(), serviceConfig.clientService());
-//    }
-//
-//    @Bean
-//    public LogoutController logoutServlet() {
-//        return new LogoutController();
 //    }
 //
 //    @Bean
@@ -83,7 +85,7 @@ public class WebConfig {
 //    public ShowCopyPassport showCopyPassport() {
 //        return new ShowCopyPassport();
 //    }
-
+//
 //    @Bean
 //    public CommonsMultipartResolver multipartResolver() {
 //        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();

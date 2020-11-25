@@ -4,6 +4,6 @@ import com.github.egorovag.onlineStore.dao.entity.AuthUserEntity;
 import com.github.egorovag.onlineStore.model.AuthUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AuthUserJpaRepository extends JpaRepository<AuthUser, Long> {
+public interface AuthUserJpaRepository extends JpaRepository<AuthUserEntity, Long> {
     AuthUserEntity findByLoginAndPassword(String login, String password);
 }

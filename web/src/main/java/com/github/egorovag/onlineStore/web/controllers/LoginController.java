@@ -2,6 +2,7 @@ package com.github.egorovag.onlineStore.web.controllers;
 
 import com.github.egorovag.onlineStore.model.AuthUser;
 import com.github.egorovag.onlineStore.model.User;
+import com.github.egorovag.onlineStore.model.enums.Role;
 import com.github.egorovag.onlineStore.service.AuthUserService;
 import com.github.egorovag.onlineStore.service.UserService;
 import org.slf4j.Logger;
@@ -35,8 +36,6 @@ public class LoginController {
         this.userService = userService;
     }
 
-}
-
     @GetMapping("/login")
     public String doGet(HttpSession session) {
         AuthUser authUser = (AuthUser) session.getAttribute("authUser");
@@ -54,8 +53,7 @@ public class LoginController {
             model.addAttribute("error", "error.login");
             return "entry";
         } else {
-            if (authUser.getLogin().equals("Seller")) {
-
+            if (authUser.getRole().equals(Role.Seller)) {
                 session.setAttribute("authUser", authUser);
                 log.info("user {} logged", authUser.getLogin());
                 Authentication auth = new UsernamePasswordAuthenticationToken(authUser, null, getAuthorities());
@@ -71,17 +69,26 @@ public class LoginController {
                 Authentication auth = new UsernamePasswordAuthenticationToken(authUser, null, getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(auth);
                 return "personalArea";
-
-                return "personalArea";
             }
         }
     }
 
     private List<GrantedAuthority> getAuthorities() {
-        if (authUser.getLogin().equals("Seller")) {
+        if (authUser.getRole().equals(Role.Seller)) {
             return Arrays.asList((GrantedAuthority) () -> "ROLE_SELLER");
         } else {
             return Arrays.asList((GrantedAuthority) () -> "ROLE_CLIENT");
         }
     }
+//
+//    private List<GrantedAuthority> getAuthorities() {
+//        if (authUser.getLogin().equals("Seller")) {
+//            return Arrays.asList((GrantedAuthority) () -> "ROLE_SELLER");
+//        } else if (authUser.getLogin().equals("Admin")) {
+//            return Arrays.asList((GrantedAuthority) () -> "ROLE_ADMIN");
+//        } else
+//            return Arrays.asList((GrantedAuthority) () -> "ROLE_CLIENT");
+//    }
+//}
+
 }

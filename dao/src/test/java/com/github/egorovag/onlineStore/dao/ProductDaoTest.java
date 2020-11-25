@@ -32,12 +32,12 @@ class ProductDaoTest {
 //        authUser = authUserDao.saveAuthUserAndClientDao(authUser, client);
 //    }
 
-    @Test
-    void testGetProductByNameDao() {
-        List<Product> products = productDao.getProductByProductNameDao(ProductName.Faucets);
-//        Assertions.assertEquals("alex", products.get(0).getName());
-        Assertions.assertEquals(ProductName.Faucets, products.get(0).getProductName());
-    }
+//    @Test
+//    void testGetProductByNameDao() {
+//        List<Product> products = productDao.getProductByProductNameDao(ProductName.Faucets);
+////        Assertions.assertEquals("alex", products.get(0).getName());
+//        Assertions.assertEquals(ProductName.Faucets, products.get(0).getProductName());
+//    }
 
 //    @Test
 //    void testReadUserByLoginDao() {

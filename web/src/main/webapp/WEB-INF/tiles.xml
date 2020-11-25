@@ -35,9 +35,15 @@
         <put-attribute name="body" value="/WEB-INF/view/page/catalog.jspx"/>
     </definition>
 
-    <definition name="productView" extends="default">
+    <definition name="view" extends="default">
         <put-attribute name="body" value="/WEB-INF/view/page/view.jspx"/>
     </definition>
+
+    <definition name="personalArea" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/personalArea.jspx"/>
+    </definition>
+
+
 
 <!--    <definition name="successfulPayment" extends="default">-->
 <!--        <put-attribute name="body" value="/WEB-INF/view/page/successfulPayment.jspx"/>-->

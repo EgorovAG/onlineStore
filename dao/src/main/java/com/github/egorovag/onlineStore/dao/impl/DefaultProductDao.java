@@ -55,7 +55,6 @@ public class DefaultProductDao implements ProductDao {
             ProductJpaRepository productJpaRepository = this.productJpaRepository;
             productJpaRepository.save(productEntity);
             log.info("Product with name: {} saved", product.getName());
-
         } catch (Exception e) {
             log.error("Fail to save product with name: {}", product.getName());
         }

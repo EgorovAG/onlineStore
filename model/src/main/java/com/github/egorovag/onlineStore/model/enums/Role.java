@@ -1,7 +1,7 @@
 package com.github.egorovag.onlineStore.model.enums;
 
 public enum Role {
-Seller, Client
+Admin, Seller, Client
 }
 
 //public enum Role {

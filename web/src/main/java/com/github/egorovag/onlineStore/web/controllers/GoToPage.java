@@ -32,4 +32,9 @@ public class GoToPage {
     public String toEntryPage() {
         return "entry";
     }
+
+    @GetMapping("/toOrderListJspx")
+    public String toOrderList() {
+        return "orderList";
+    }
 }
