@@ -41,11 +41,12 @@ public class DefaultAuthUserDao implements AuthUserDao {
     public AuthUser saveAuthUserDao(AuthUser authUser) {
         try {
             AuthUserEntity authUserEntity = AuthUserConverter.toEntity(authUser);
-            UserEntity userEntity = UserConverter.toEntity(userDao.readUser(authUserEntity.getLogin()));
+            UserEntity userEntity = UserConverter.toEntity(userDao.readUserByAuthUserLoginDao(authUserEntity.getLogin()));
             authUserEntity.setUserEntity(userEntity);
-            authUserJpaRepository.save(authUserEntity);
+            userEntity.setAuthUserEntity(authUserEntity);
+            AuthUserEntity authUserEntityNew = authUserJpaRepository.save(authUserEntity);
             log.info("AuthUser: {} saved", authUser);
-            return AuthUserConverter.fromEntity(authUserEntity);
+            return AuthUserConverter.fromEntity(authUserEntityNew);
 //            log.info("AuthUser: {} and Client : {} saved", authUser, client);
         } catch (Exception e) {
 //            log.error("Fail to save AuthUser: {} and Client : {} ", authUser, client, e);

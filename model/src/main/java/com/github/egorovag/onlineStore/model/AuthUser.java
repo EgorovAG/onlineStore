@@ -25,6 +25,13 @@ public class AuthUser {
         this.role = role;
     }
 
+    public AuthUser(String login, String password, Role role, long user_id) {
+        this.login = login;
+        this.password = password;
+        this.role = role;
+        this.user_id = user_id;
+    }
+
     public long getId() {
         return id;
     }

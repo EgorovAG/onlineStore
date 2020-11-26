@@ -1,9 +1,11 @@
 package com.github.egorovag.onlineStore.dao.impl;
 
 import com.github.egorovag.onlineStore.dao.UserDao;
+import com.github.egorovag.onlineStore.dao.converter.AuthUserConverter;
 import com.github.egorovag.onlineStore.dao.converter.UserConverter;
 import com.github.egorovag.onlineStore.dao.entity.UserEntity;
 import com.github.egorovag.onlineStore.dao.repository.UserJpaRepository;
+import com.github.egorovag.onlineStore.model.AuthUser;
 import com.github.egorovag.onlineStore.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +24,31 @@ public class DefaultUserDao implements UserDao {
             log.info("User with id: {} read", user_id);
             return UserConverter.fromEntity(userEntity);
         } catch (Exception e) {
-            log.error("Fail to read user with id: {}", user_id);
+            log.error("Fail to read user with id: {}", user_id, e);
+            return null;
+        }
+    }
+
+        @Override
+        public User readUserByAuthUserDao(AuthUser authUser) {
+            try {
+                UserEntity userEntity = userJpaRepository.findUserEntityByAuthUserEntity(AuthUserConverter.toEntity(authUser));
+                log.info("User with authUserLogin: {} read", authUser.getLogin());
+                return UserConverter.fromEntity(userEntity);
+            } catch (Exception e) {
+                log.error("Fail to read user with authUserLogin: {}", authUser.getLogin(), e);
+                return null;
+            }
+    }
+
+    @Override
+    public User readUserByAuthUserLoginDao(String login) {
+        try {
+            UserEntity userEntity = userJpaRepository.findUserEntityByAuthUserEntity_Login(login);
+            log.info("User with login: {} read", login);
+            return UserConverter.fromEntity(userEntity);
+        } catch (Exception e) {
+            log.error("Fail to read user with login: {}", login, e);
             return null;
         }
     }

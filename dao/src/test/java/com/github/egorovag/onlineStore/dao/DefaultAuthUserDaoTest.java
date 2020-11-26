@@ -31,7 +31,7 @@ class DefaultAuthUserDaoTest {
     void createAuthUser() {
         User user = new User("user", "user", "email", "55555");
         User userNew =userDao.saveUserDao(user);
-        AuthUser authUser = new AuthUser("authUser", "authUserPass", Role.Seller);
+        AuthUser authUser = new AuthUser("authUser", "authUserPass", Role.Seller, userNew.getId() );
         authUserNew = authUserDao.saveAuthUserDao(authUser);
     }
 

@@ -43,7 +43,7 @@ public class DefaultProductDao implements ProductDao {
             log.info("Product with id: {} read", id);
             return ProductConverter.fromEntity(productEntity);
         } catch (Exception e) {
-            log.error("Fail to read product with id: {}", id);
+            log.error("Fail to read product with id: {}", id, e);
             return null;
         }
     }
@@ -56,7 +56,7 @@ public class DefaultProductDao implements ProductDao {
             productJpaRepository.save(productEntity);
             log.info("Product with name: {} saved", product.getName());
         } catch (Exception e) {
-            log.error("Fail to save product with name: {}", product.getName());
+            log.error("Fail to save product with name: {}", product.getName(), e);
         }
     }
 
@@ -67,7 +67,7 @@ public class DefaultProductDao implements ProductDao {
             log.info("Product with id: {} deleted", id);
             return true;
         } catch (Exception e) {
-            log.error("Fail to delete product with id: {}", id);
+            log.error("Fail to delete product with id: {}", id, e);
             return false;
         }
     }
