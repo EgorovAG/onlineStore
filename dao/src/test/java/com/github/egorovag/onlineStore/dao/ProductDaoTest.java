@@ -6,6 +6,7 @@ import com.github.egorovag.onlineStore.dao.config.DaoConfig;
 import com.github.egorovag.onlineStore.model.Product;
 import com.github.egorovag.onlineStore.model.enums.ProductName;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,21 +24,21 @@ class ProductDaoTest {
     @Autowired
     ProductDao productDao;
 
+
+
     private Product product;
 
-//    @BeforeEach
-//    void saveAuthUserAndClient() {
-//        authUser = new AuthUser("alex", "pass", Role.USER);
-//        client = new Client(null, "Alex", "Alexandrov", "alex@tut.by", "55555");
-//        authUser = authUserDao.saveAuthUserAndClientDao(authUser, client);
-//    }
+    @BeforeEach
+    void saveUserAndProductAndOrder() {
 
-//    @Test
-//    void testGetProductByNameDao() {
-//        List<Product> products = productDao.getProductByProductNameDao(ProductName.Faucets);
-////        Assertions.assertEquals("alex", products.get(0).getName());
-//        Assertions.assertEquals(ProductName.Faucets, products.get(0).getProductName());
-//    }
+    }
+
+    @Test
+    void testGetProductByNameDao() {
+        List<Product> products = productDao.getProductByProductNameDao(ProductName.Faucets);
+//        Assertions.assertEquals("alex", products.get(0).getName());
+        Assertions.assertEquals(ProductName.Faucets, products.get(0).getProductName());
+    }
 
 //    @Test
 //    void testReadUserByLoginDao() {

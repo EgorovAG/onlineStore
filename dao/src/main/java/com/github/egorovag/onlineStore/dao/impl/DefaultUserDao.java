@@ -26,4 +26,30 @@ public class DefaultUserDao implements UserDao {
             return null;
         }
     }
+
+    @Override
+    public User saveUserDao(User user) {
+        try {
+            UserEntity userEntity = userJpaRepository.save(UserConverter.toEntity(user));
+            log.info("User: {} saved", user);
+            return UserConverter.fromEntity(userEntity);
+//            log.info("AuthUser: {} and Client : {} saved", authUser, client);
+        } catch (Exception e) {
+//            log.error("Fail to save AuthUser: {} and Client : {} ", authUser, client, e);
+            log.error("Fail to save user: {} ", user, e);
+            return null;
+        }
+    }
+
+    @Override
+    public boolean deleteUserDao(Long id) {
+            try {
+                userJpaRepository.deleteById(id);
+                log.info("User with : {} id deleted", id);
+                return true;
+            } catch (Exception e) {
+                log.error("Fail to delete User with : {} id ", id, e);
+                return false;
+            }
+        }
 }

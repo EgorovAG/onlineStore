@@ -27,7 +27,7 @@ public class DaoConfig {
 
     @Bean
     public AuthUserDao authUserDao() {
-        return new DefaultAuthUserDao();
+        return new DefaultAuthUserDao(userDao());
     }
 
     @Bean
