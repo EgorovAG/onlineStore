@@ -41,7 +41,7 @@ public class DefaultAuthUserDao implements AuthUserDao {
     public AuthUser saveAuthUserDao(AuthUser authUser) {
         try {
             AuthUserEntity authUserEntity = AuthUserConverter.toEntity(authUser);
-            UserEntity userEntity = UserConverter.toEntity(userDao.readUserByAuthUserLoginDao(authUserEntity.getLogin()));
+            UserEntity userEntity = UserConverter.toEntity(userDao.readUserByUserIdDao(authUserEntity.getUser_id()));
             authUserEntity.setUserEntity(userEntity);
             userEntity.setAuthUserEntity(authUserEntity);
             AuthUserEntity authUserEntityNew = authUserJpaRepository.save(authUserEntity);
