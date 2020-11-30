@@ -37,4 +37,6 @@ public class GoToPage {
     public String toOrderList() {
         return "orderList";
     }
+
+    toRegistrationJspx
 }
