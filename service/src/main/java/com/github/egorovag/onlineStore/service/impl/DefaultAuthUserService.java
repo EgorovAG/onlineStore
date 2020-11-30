@@ -14,7 +14,7 @@ public class DefaultAuthUserService implements AuthUserService {
 
     @Override
     public AuthUser getAuthUserService(String login, String password) {
-        return authUserDao.getAuthUserDao(login, password);
+        return authUserDao.getAuthUserByLoginAndByPasswordDao(login, password);
     }
 }
 

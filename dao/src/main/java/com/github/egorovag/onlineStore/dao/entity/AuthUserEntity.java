@@ -61,7 +61,7 @@ public class AuthUserEntity {
         this.role = role;
     }
 
-    @Column
+    @Column(insertable = false, updatable = false)
     public long getUser_id() {
         return user_id;
     }
@@ -70,8 +70,8 @@ public class AuthUserEntity {
         this.user_id = user_id;
     }
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     public UserEntity getUserEntity() {
         return userEntity;
     }

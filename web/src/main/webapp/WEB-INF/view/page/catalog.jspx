@@ -30,8 +30,8 @@
                     <td>${products.price}</td>
                     <td>${products.quantity}</td>
                     <td>
-                        <form name="view" action="${pageContext.request.contextPath}/catalog/view" >
-                            <button name="view" value="${products.id}"><spring:message code="button.view"/></button>
+                        <form name="productView" action="${pageContext.request.contextPath}/catalog/productView" >
+                            <button name="productView" value="${products.id}"><spring:message code="button.view"/></button>
                         </form>
                     </td>
                 </tr>

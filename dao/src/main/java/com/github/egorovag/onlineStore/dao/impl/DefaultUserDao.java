@@ -7,6 +7,7 @@ import com.github.egorovag.onlineStore.dao.entity.UserEntity;
 import com.github.egorovag.onlineStore.dao.repository.UserJpaRepository;
 import com.github.egorovag.onlineStore.model.AuthUser;
 import com.github.egorovag.onlineStore.model.User;
+import org.hibernate.HibernateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +19,13 @@ public class DefaultUserDao implements UserDao {
     UserJpaRepository userJpaRepository;
 
     @Override
-    public User readUserByUserIdDao(long user_id) {
+    public User readUserByUserIdDao(long id) {
         try {
-            UserEntity userEntity = userJpaRepository.findById(user_id).orElse(null);
-            log.info("User with id: {} read", user_id);
+            UserEntity userEntity = userJpaRepository.findById(id).orElse(null);
+            log.info("User with id: {} read", id);
             return UserConverter.fromEntity(userEntity);
         } catch (Exception e) {
-            log.error("Fail to read user with id: {}", user_id, e);
+            log.error("Fail to read user with id: {}", id, e);
             return null;
         }
     }
@@ -59,9 +60,7 @@ public class DefaultUserDao implements UserDao {
             UserEntity userEntity = userJpaRepository.save(UserConverter.toEntity(user));
             log.info("User: {} saved", user);
             return UserConverter.fromEntity(userEntity);
-//            log.info("AuthUser: {} and Client : {} saved", authUser, client);
-        } catch (Exception e) {
-//            log.error("Fail to save AuthUser: {} and Client : {} ", authUser, client, e);
+        } catch (HibernateException e) {
             log.error("Fail to save user: {} ", user, e);
             return null;
         }

@@ -38,8 +38,7 @@ public class DefaultProductDao implements ProductDao {
     @Override
     public Product getProductByIdDao(Long id) {
         try {
-            Optional<ProductEntity> optionalProductEntity = productJpaRepository.findById(id);
-            ProductEntity productEntity = optionalProductEntity.get();
+            ProductEntity productEntity = productJpaRepository.findById(id).orElse(null);
             log.info("Product with id: {} read", id);
             return ProductConverter.fromEntity(productEntity);
         } catch (Exception e) {

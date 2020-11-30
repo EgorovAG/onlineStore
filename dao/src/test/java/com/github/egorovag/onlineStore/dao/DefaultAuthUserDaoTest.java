@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = DaoConfig.class)
-//@Transactional
+@Transactional
 class DefaultAuthUserDaoTest {
 
     @Autowired
@@ -30,15 +30,23 @@ class DefaultAuthUserDaoTest {
     @BeforeEach
     void createAuthUserAndUser() {
         User user = new User("user", "user", "email", "55555");
-        User userNew =userDao.saveUserDao(user);
-        AuthUser authUser = new AuthUser("authUser", "authUserPass", Role.Seller, userNew.getId() );
+        User userNew = userDao.saveUserDao(user);
+        AuthUser authUser = new AuthUser("authUser", "authUserPass", Role.Seller, userNew.getId());
         authUserNew = authUserDao.saveAuthUserDao(authUser);
     }
 
     @Test
-    void testGetAuthUserDao() {
-        AuthUser authUserGet = authUserDao.getAuthUserDao(authUserNew.getLogin(), authUserNew.getPassword());
+    void testGetAuthUserByLoginAndPasswordDao() {
+        AuthUser authUserGet = authUserDao.getAuthUserByLoginAndByPasswordDao(authUserNew.getLogin(), authUserNew.getPassword());
         assertEquals("authUserPass", authUserGet.getPassword());
+        assertEquals("authUser", authUserGet.getLogin());
+    }
+
+    @Test
+    void testGetAuthUserByIdDao() {
+        AuthUser authUserGet = authUserDao.getAuthUserByIdDao(authUserNew.getId());
+        assertEquals("authUserPass", authUserGet.getPassword());
+        assertEquals("authUser", authUserGet.getLogin());
     }
 
     @Test

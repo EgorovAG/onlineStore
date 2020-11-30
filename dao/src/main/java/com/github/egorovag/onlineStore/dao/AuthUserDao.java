@@ -4,7 +4,8 @@ import com.github.egorovag.onlineStore.model.AuthUser;
 
 public interface AuthUserDao {
 
-    AuthUser getAuthUserDao(String login, String password);
+    AuthUser getAuthUserByLoginAndByPasswordDao(String login, String password);
+    AuthUser getAuthUserByIdDao(Long id);
     AuthUser saveAuthUserDao(AuthUser authUser);
     boolean deleteAuthUserByIdDao(Long id);
 }

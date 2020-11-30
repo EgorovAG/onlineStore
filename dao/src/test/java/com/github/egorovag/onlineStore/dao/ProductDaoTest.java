@@ -24,8 +24,6 @@ class ProductDaoTest {
     @Autowired
     ProductDao productDao;
 
-
-
     private Product product;
 
     @BeforeEach

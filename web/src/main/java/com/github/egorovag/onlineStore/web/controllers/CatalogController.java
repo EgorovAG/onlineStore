@@ -35,8 +35,8 @@ public class CatalogController {
         return "catalog";
     }
 
-    @GetMapping("/view")
-    public String getProductById(@RequestParam(value = "view") Long id, Model model) {
+    @GetMapping("/productView")
+    public String getProductById(@RequestParam(value = "productView") Long id, Model model) {
         Product product = productService.getProductByIDService(id);
         if (product.equals(null)) {
             model.addAttribute("product", null);

@@ -63,4 +63,3 @@ create table IF NOT EXISTS orderOfGoods
     constraint orderOfGoods_product_id_FK foreign key (product_id) references product (id)
 );
 
-# ----------------------------------------.

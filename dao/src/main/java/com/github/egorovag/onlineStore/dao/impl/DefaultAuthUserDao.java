@@ -26,13 +26,25 @@ public class DefaultAuthUserDao implements AuthUserDao {
     }
 
     @Override
-    public AuthUser getAuthUserDao(String login, String password) {
+    public AuthUser getAuthUserByLoginAndByPasswordDao(String login, String password) {
         try {
             AuthUserEntity authUserEntity = authUserJpaRepository.findByLoginAndPassword(login, password);
-            log.info("Get authUser with login {} password{}", login, password);
+            log.info("Get authUser with login {} and  password {}", login, password);
             return AuthUserConverter.fromEntity(authUserEntity);
         } catch (Exception e) {
-            log.error("fail to get authUser with login {} password{}", login, password);
+            log.error("fail to get authUser with login {} and password {}", login, password, e);
+            return null;
+        }
+    }
+
+    @Override
+    public AuthUser getAuthUserByIdDao(Long id) {
+        try {
+            AuthUserEntity authUserEntity = authUserJpaRepository.findById(id).orElse(null);
+            log.info("Get authUser with id {} ", id);
+            return AuthUserConverter.fromEntity(authUserEntity);
+        } catch (Exception e) {
+            log.error("fail to get authUser with id {} ", id, e );
             return null;
         }
     }
@@ -43,7 +55,6 @@ public class DefaultAuthUserDao implements AuthUserDao {
             AuthUserEntity authUserEntity = AuthUserConverter.toEntity(authUser);
             UserEntity userEntity = UserConverter.toEntity(userDao.readUserByUserIdDao(authUserEntity.getUser_id()));
             authUserEntity.setUserEntity(userEntity);
-            userEntity.setAuthUserEntity(authUserEntity);
             AuthUserEntity authUserEntityNew = authUserJpaRepository.save(authUserEntity);
             log.info("AuthUser: {} saved", authUser);
             return AuthUserConverter.fromEntity(authUserEntityNew);
