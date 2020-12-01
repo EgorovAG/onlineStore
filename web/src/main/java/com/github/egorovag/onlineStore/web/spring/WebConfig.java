@@ -1,6 +1,7 @@
 package com.github.egorovag.onlineStore.web.spring;
 
 
+import com.github.egorovag.onlineStore.service.AuthUserService;
 import com.github.egorovag.onlineStore.service.config.ServiceConfig;
 import com.github.egorovag.onlineStore.web.controllers.*;
 import org.springframework.context.annotation.Bean;
@@ -57,6 +58,11 @@ public class WebConfig {
     @Bean
     public LogoutController logoutServlet() {
         return new LogoutController();
+    }
+
+    @Bean
+    public RegistrationController registrationServlet() {
+        return new RegistrationController(serviceConfig.authUserService(), serviceConfig.userService());
     }
 
 

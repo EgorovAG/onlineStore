@@ -23,7 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-@RequestMapping
+@RequestMapping("/login")
 public class LoginController {
 
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
@@ -36,16 +36,16 @@ public class LoginController {
         this.userService = userService;
     }
 
-    @GetMapping("/login")
+    @GetMapping
     public String doGet(HttpSession session) {
         AuthUser authUser = (AuthUser) session.getAttribute("authUser");
         if (authUser == null) {
             return "login";
         }
-        return "personalArea!!!!!!!!!!!!!!!!!!!!!!!!!";
+        return "personalArea";
     }
 
-    @PostMapping("/login")
+    @PostMapping
     public String checkAuthUser(@RequestParam(value = "login") String login,
                                 @RequestParam(value = "password") String password, Model model, HttpSession session) {
         authUser = authUserService.getAuthUserService(login, password);

@@ -7,6 +7,9 @@ public class User {
     private String email;
     private String phone;
 
+    public User() {
+    }
+
     public User(long id, String firstName, String lastName, String email, String phone) {
         this.id = id;
         this.firstName = firstName;
@@ -60,5 +63,16 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

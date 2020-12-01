@@ -19,10 +19,10 @@
         <label for="password"><spring:message code="button.password"/></label> <br/>
 
         <input id="firstName" type="text" name="firstName" pattern="[A-Za-zА-Яа-я0-9]{1,50}" required=""/>
-        <label for="firstName"><spring:message code="label.nameClient"/></label> <br/>
+        <label for="firstName"><spring:message code="label.firstName"/></label> <br/>
 
-        <input id="secondName" type="text" name="secondName" pattern="[A-Za-zА-Яа-я0-9]{1,50}" required=""/>
-        <label for="secondName"><spring:message code="label.surname"/></label> <br/>
+        <input id="lastName" type="text" name="lastName" pattern="[A-Za-zА-Яа-я0-9]{1,50}" required=""/>
+        <label for="lastName"><spring:message code="label.lastName"/></label> <br/>
 
         <input id="email" type="email" name="email" placeholder="mail@mail.com"
                pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" required=""/>

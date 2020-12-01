@@ -6,76 +6,76 @@
           version="2.0" xmlns:sec="http://www.springframework.org/security/tags">
 
 
-<!--    <sec:authorize access="hasRole('ROLE_CLIENT')">-->
+    <sec:authorize access="hasRole('ROLE_CLIENT')">
 
-<!--        <h4><spring:message code="label.userName"/>: ${user.firstName}</h4>-->
-<!--        <h1 style="text-align: center"><spring:message code="text.personalArea"/></h1>-->
+        <h4><spring:message code="label.userName"/>: ${user.firstName}</h4>
+        <h1 style="text-align: center"><spring:message code="text.personalArea"/></h1>
 
-<!--        <fieldset>-->
-<!--            <form action="${pageContext.request.contextPath}/toHomePageJspx">-->
-<!--                <button name="Cart"><spring:message code="button.myOrders"/></button>-->
-<!--            </form>-->
-<!--        </fieldset>-->
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/toHomePageJspx">
+                <button name="Cart"><spring:message code="button.myOrders"/></button>
+            </form>
+        </fieldset>
 
-<!--        <fieldset>-->
-<!--            <form action="${pageContext.request.contextPath}/toHomePageJspx">-->
-<!--                <button name="Cart"><spring:message code="button.cart"/></button>-->
-<!--            </form>-->
-<!--        </fieldset>-->
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/toHomePageJspx">
+                <button name="Cart"><spring:message code="button.cart"/></button>
+            </form>
+        </fieldset>
 
-<!--        <fieldset>-->
-<!--            <form action="${pageContext.request.contextPath}/toHomePageJspx">-->
-<!--                <button name="Cart"><spring:message code="button.personalData"/></button>-->
-<!--            </form>-->
-<!--        </fieldset>-->
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/toHomePageJspx">
+                <button name="Cart"><spring:message code="button.personalData"/></button>
+            </form>
+        </fieldset>
 
-<!--&lt;!&ndash;        <s:form id="uploadForm" action="upload" enctype="multipart/form-data">&ndash;&gt;-->
-<!--&lt;!&ndash;            <table>&ndash;&gt;-->
-<!--&lt;!&ndash;                <tr>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <th><label><spring:message code="label.copyPassport"/></label></th>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <td><input name="avatar" type="file"/></td>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <td><input id="uploadButton" type="submit" value="Upload image"/></td>&ndash;&gt;-->
-<!--&lt;!&ndash;                </tr>&ndash;&gt;-->
-<!--&lt;!&ndash;            </table>&ndash;&gt;-->
-<!--&lt;!&ndash;        </s:form>&ndash;&gt;-->
+<!--        <s:form id="uploadForm" action="upload" enctype="multipart/form-data">-->
+<!--            <table>-->
+<!--                <tr>-->
+<!--                    <th><label><spring:message code="label.copyPassport"/></label></th>-->
+<!--                    <td><input name="avatar" type="file"/></td>-->
+<!--                    <td><input id="uploadButton" type="submit" value="Upload image"/></td>-->
+<!--                </tr>-->
+<!--            </table>-->
+<!--        </s:form>-->
 
-<!--        <br/>-->
-<!--        <br/>-->
-<!--        <br/>-->
-<!--        <a href="${pageContext.request.contextPath}/logout"><spring:message code="button.logout"/></a>-->
-<!--        &lt;!&ndash;    </c:if>&ndash;&gt;-->
-<!--    </sec:authorize>-->
+        <br/>
+        <br/>
+        <br/>
+        <a href="${pageContext.request.contextPath}/logout"><spring:message code="button.logout"/></a>
+        <!--    </c:if>-->
+    </sec:authorize>
 
 
-<!--    <sec:authorize access="hasRole('ROLE_SELLER')">-->
-<!--        &lt;!&ndash;    <c:if test="${authUser.login == 'admin'}">&ndash;&gt;-->
-<!--        <h4><spring:message code="label.admin"/></h4>-->
-<!--        <h1 style="text-align: center"><spring:message code="text.personalArea"/></h1>-->
+    <sec:authorize access="hasRole('ROLE_SELLER')">
+        <!--    <c:if test="${authUser.login == 'admin'}">-->
+        <h4><spring:message code="label.admin"/></h4>
+        <h1 style="text-align: center"><spring:message code="text.personalArea"/></h1>
 
-<!--        <fieldset>-->
-<!--            <form action="${pageContext.request.contextPath}/toHomePageJspx">-->
-<!--                <button name="viewOrders"><spring:message code="button.orderList"/></button>-->
-<!--            </form>-->
-<!--        </fieldset>-->
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/toHomePageJspx">
+                <button name="viewOrders"><spring:message code="button.orderList"/></button>
+            </form>
+        </fieldset>
 
-<!--        <fieldset>-->
-<!--            <form action="${pageContext.request.contextPath}/toHomePageJspx">-->
-<!--                <button name="viewingRegisteredUsers"><spring:message code="button.listOfRegisteredUsers"/></button>-->
-<!--            </form>-->
-<!--        </fieldset>-->
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/toHomePageJspx">
+                <button name="viewingRegisteredUsers"><spring:message code="button.listOfRegisteredUsers"/></button>
+            </form>
+        </fieldset>
 
-<!--        <fieldset>-->
-<!--            <form action="${pageContext.request.contextPath}/toHomePageJspx">-->
-<!--                <button name="blockedUsersList"><spring:message code="button.productList"/></button>-->
-<!--            </form>-->
-<!--        </fieldset>-->
-<!--        <br/>-->
-<!--        <br/>-->
-<!--        <br/>-->
-<!--        <a href="${pageContext.request.contextPath}/logout"><spring:message code="button.logout"/></a>-->
+        <fieldset>
+            <form action="${pageContext.request.contextPath}/toHomePageJspx">
+                <button name="blockedUsersList"><spring:message code="button.productList"/></button>
+            </form>
+        </fieldset>
+        <br/>
+        <br/>
+        <br/>
+        <a href="${pageContext.request.contextPath}/logout"><spring:message code="button.logout"/></a>
 
-<!--        &lt;!&ndash;    </c:if>&ndash;&gt;-->
-<!--    </sec:authorize>-->
+        <!--    </c:if>-->
+    </sec:authorize>
 
 
 </jsp:root>

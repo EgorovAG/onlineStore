@@ -8,4 +8,7 @@ public interface AuthUserService {
     AuthUser getAuthUserService(String login, String password);
 
 
+    boolean checkLogin(String login, String password);
+
+    AuthUser saveAuthUserService(AuthUser authUser);
 }

@@ -38,5 +38,4 @@ public class GoToPage {
         return "orderList";
     }
 
-    toRegistrationJspx
 }

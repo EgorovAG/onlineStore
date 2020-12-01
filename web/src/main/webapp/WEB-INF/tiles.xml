@@ -11,6 +11,13 @@
         <put-attribute name="footer" value="/WEB-INF/view/common/footer.jspx"/>
     </definition>
 
+    <definition name="defaultWithoutSidebar" template="/WEB-INF/view/layouts/defaultWithoutSidebar.jspx">
+        <!--        <put-attribute name="title" value="Web project"/>-->
+        <put-attribute name="header" value="/WEB-INF/view/common/header.jspx"/>
+        <put-attribute name="bodyWithoutSidebar" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/view/common/footer.jspx"/>
+    </definition>
+
     <definition name="index" extends="default">
         <put-attribute name="body" value="/WEB-INF/view/page/index.jspx"/>
     </definition>
@@ -45,6 +52,14 @@
 
     <definition name="productView" extends="default">
         <put-attribute name="body" value="/WEB-INF/view/page/productView.jspx"/>
+    </definition>
+
+    <definition name="registration" extends="defaultWithoutSidebar">
+        <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/registration.jspx"/>
+    </definition>
+
+    <definition name="login" extends="defaultWithoutSidebar">
+        <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/entry.jspx"/>
     </definition>
 
 
