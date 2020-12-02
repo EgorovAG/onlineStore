@@ -21,6 +21,22 @@
             <button name="GoToEntryPage" formaction="${pageContext.request.contextPath}/toEntryPageJspx">
                 <spring:message code="button.entry"/></button>
         </form>
+
+        <form>
+            <button name="GoToCart" formaction="${pageContext.request.contextPath}/cart">
+                <spring:message code="label.cart"/>:
+                <c:choose>
+                    <c:when test ="${carts.size()==null}">
+                        0
+                    </c:when>
+                    <c:otherwise>
+                        ${carts.size()}
+                    </c:otherwise>
+                </c:choose>
+            </button>
+        </form>
+
+
         <br/>
 
         <div>

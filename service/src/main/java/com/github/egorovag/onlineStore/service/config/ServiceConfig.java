@@ -2,14 +2,8 @@ package com.github.egorovag.onlineStore.service.config;
 
 
 import com.github.egorovag.onlineStore.dao.config.DaoConfig;
-import com.github.egorovag.onlineStore.service.AuthUserService;
-import com.github.egorovag.onlineStore.service.OrderOfGoodsService;
-import com.github.egorovag.onlineStore.service.ProductService;
-import com.github.egorovag.onlineStore.service.UserService;
-import com.github.egorovag.onlineStore.service.impl.DefaultAuthUserService;
-import com.github.egorovag.onlineStore.service.impl.DefaultOrderOfGoodsService;
-import com.github.egorovag.onlineStore.service.impl.DefaultProductService;
-import com.github.egorovag.onlineStore.service.impl.DefaultUserService;
+import com.github.egorovag.onlineStore.service.*;
+import com.github.egorovag.onlineStore.service.impl.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -42,6 +36,11 @@ public class ServiceConfig {
     @Bean
     public ProductService productService() {
         return new DefaultProductService(daoConfig.productDao());
+    }
+
+    @Bean
+    CartService cartService() {
+        return new DefaultCartService();
     }
 }
 

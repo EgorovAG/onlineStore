@@ -62,6 +62,10 @@
         <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/entry.jspx"/>
     </definition>
 
+    <definition name="cart" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/cart.jspx"/>
+    </definition>
+
 
 
 <!--    <definition name="successfulPayment" extends="default">-->

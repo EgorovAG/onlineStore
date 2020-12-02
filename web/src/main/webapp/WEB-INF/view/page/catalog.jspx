@@ -33,6 +33,12 @@
                         <form name="productView" action="${pageContext.request.contextPath}/catalog/productView" >
                             <button name="productView" value="${products.id}"><spring:message code="button.view"/></button>
                         </form>
+                        <form name="productToBuy" action="${pageContext.request.contextPath}/cart/productToBuy" >
+                            <button name="productToBuy" value="${products.id}"><spring:message code="button.toBuy"/></button>
+                        </form>
+                        <form name="cart" action="${pageContext.request.contextPath}/cart/add" method="post" >
+                            <button name="cart" value="${products.id}"><spring:message code="button.AddCart"/></button>
+                        </form>
                     </td>
                 </tr>
             </c:forEach>
