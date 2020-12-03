@@ -26,11 +26,11 @@
             <button name="GoToCart" formaction="${pageContext.request.contextPath}/cart">
                 <spring:message code="label.cart"/>:
                 <c:choose>
-                    <c:when test ="${carts.size()==null}">
+                    <c:when test ="${productsInTheCart.size()==null}">
                         0
                     </c:when>
                     <c:otherwise>
-                        ${carts.size()}
+                        ${productsInTheCart.size()}
                     </c:otherwise>
                 </c:choose>
             </button>

@@ -68,6 +68,7 @@
 
 
 
+
 <!--    <definition name="successfulPayment" extends="default">-->
 <!--        <put-attribute name="body" value="/WEB-INF/view/page/successfulPayment.jspx"/>-->
 <!--    </definition>-->

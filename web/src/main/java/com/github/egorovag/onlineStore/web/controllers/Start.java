@@ -7,18 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping
 public class Start {
 
-
     @GetMapping("/")
     public String doGet(HttpSession httpSession) {
-        Set<Product> products = new HashSet<>();
-        httpSession.setAttribute("products", products);
+        List<Product> listProductsInTheCart = new ArrayList<>();
+        httpSession.setAttribute("productsInTheCart", listProductsInTheCart);
         return "index";
     }
 }

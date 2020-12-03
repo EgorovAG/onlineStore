@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.util.Set;
+import java.util.Iterator;
+import java.util.List;
 
 
 @Controller
@@ -24,29 +25,46 @@ public class CartController {
     private Product product;
 
     @GetMapping()
-    public String goToCart(Model model, HttpSession httpSession){
-        Set<Product> products = (Set<Product>) httpSession.getAttribute("products");
-        model.addAttribute("products", products );
+    public String goToCart(Model model, HttpSession httpSession) {
+        List<Product> productsInTheCart = (List<Product>) httpSession.getAttribute("productsInTheCart");
+        model.addAttribute("productsInTheCart", productsInTheCart);
         return "cart";
     }
 
     @PostMapping("/deleteProduct")
-    public String deleteProduct(@RequestParam(value = "id") Long id, Model model, HttpSession httpSession){
-        Set<Product> products = (Set<Product>) httpSession.getAttribute("products");
-
-        products.remove(product);
-        model.addAttribute("products", products);
+    public String deleteProduct(@RequestParam(value = "id") Long id, Model model, HttpSession httpSession) {
+        List<Product> listProductsInTheCart = (List<Product>) httpSession.getAttribute("productsInTheCart");
+        Iterator<Product> iteratorProduct = listProductsInTheCart.iterator();
+      while(iteratorProduct.hasNext()){
+          Product delProduct = iteratorProduct.next();
+          if ( delProduct.getId()==id) {
+              iteratorProduct.remove();
+          }
+      }
+      httpSession.setAttribute("productsInTheCart", listProductsInTheCart);
         return "cart";
     }
 
+    @PostMapping("/addProduct")
+    public String addProduct(Product productsInTheCart,
+                             @RequestParam(value = "productName") String productName, Model model,
+                             HttpSession httpSession) {
+        List<Product> listProductsInTheCart = (List<Product>) httpSession.getAttribute("productsInTheCart");
+        listProductsInTheCart.add(productsInTheCart);
+//        httpSession.removeAttribute("productsInTheCart");
+        httpSession.setAttribute("productsInTheCart", listProductsInTheCart);
+        model.addAttribute("productName", productName);
+        return "redirect:/catalog/product";
+    }
+
     @PostMapping
-    public String setOrderOfGoods(Model model){
+    public String setOrderOfGoods(Model model) {
 
         return "orderIsAccepted";
     }
 
     @PostMapping("/add")
-    public String addProductToSessionAndGoToCart(Model model, HttpSession httpSession){
+    public String addProductToSessionAndGoToCart(Model model, HttpSession httpSession) {
         Cart cart = (Cart) httpSession.getAttribute("cart");
         cartService.addItemToCart(cart);
 

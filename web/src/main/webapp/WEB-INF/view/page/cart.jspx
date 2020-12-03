@@ -21,20 +21,19 @@
         </tr>
 
         <c:set var="x" value="${maxResultsPage*(currentPage-1)+1}"/>
-        <c:forEach var="products" items="${products}">
+        <c:forEach var="productsInTheCart" items="${productsInTheCart}">
             <tr>
                 <td><c:out value="${x}"/>
                     <c:set var="x" value="${x+1}"/></td>
-                <td>${products.productName}</td>
-                <td>${products.name}</td>
-                <td>${products.description}</td>
-                <td>${products.price}</td>
-                <td>${products.quantity}</td>
+                <td>${productsInTheCart.productName}</td>
+                <td>${productsInTheCart.name}</td>
+                <td>${productsInTheCart.description}</td>
+                <td>${productsInTheCart.price}</td>
+                <td>${productsInTheCart.quantity}</td>
                 <td>
 
                     <form action="${pageContext.request.contextPath}/cart/deleteProduct" method="post">
-                        <input id="id1" type="text" name="id" value="${products.id}"
-                               hidden="hidden"/>
+                        <input id="id" type="text" name="id" value="${productsInTheCart.id}" hidden="hidden"/>
                         <button name="delete"><spring:message code="button.delete"/></button>
                     </form>
                 </td>
