@@ -65,6 +65,11 @@ public class WebConfig {
         return new RegistrationController(serviceConfig.authUserService(), serviceConfig.userService());
     }
 
+    @Bean
+    public OrderController orderServlet() {
+        return new OrderController();
+    }
+
 
 //    @Bean
 //    public OrderController clientOrderServlet() {

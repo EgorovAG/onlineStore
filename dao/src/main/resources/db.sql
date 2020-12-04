@@ -20,7 +20,7 @@ create table IF NOT EXISTS user
 create table IF NOT EXISTS authUser
 (
     id       bigint auto_increment PRIMARY KEY,
-    login    varchar(50) not null,
+    login    varchar(50) not null UNIQUE ,
     password varchar(50) not null,
     role     varchar(50) not null,
     user_id  bigint      not null,
@@ -59,6 +59,10 @@ create table IF NOT EXISTS orderOfGoods
     orderStatus     varchar(250) not null,
     deliveryAddress varchar(250) not null,
     deliveryDate    DATE         not null,
+    phone           varchar(100) not null,
+
+
+
     constraint orderOfGoods_user_id_FK foreign key (user_id) references user (id),
     constraint orderOfGoods_product_id_FK foreign key (product_id) references product (id)
 );

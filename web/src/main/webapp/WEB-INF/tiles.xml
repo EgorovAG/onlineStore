@@ -66,6 +66,10 @@
         <put-attribute name="body" value="/WEB-INF/view/page/cart.jspx"/>
     </definition>
 
+    <definition name="order" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/order.jspx"/>
+    </definition>
+
 
 
 
