@@ -1,6 +1,8 @@
 package com.github.egorovag.onlineStore.web.controllers;
 
+import com.github.egorovag.onlineStore.model.OrderOfGoods;
 import com.github.egorovag.onlineStore.model.Product;
+import com.github.egorovag.onlineStore.service.OrderOfGoodsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,9 +17,11 @@ import java.util.List;
 @RequestMapping("/order")
 public class OrderController {
     private static final Logger log = LoggerFactory.getLogger(OrderController.class);
+    private OrderOfGoodsService orderOfGoodsService;
 
     @GetMapping()
-    public String goToOrder(Model model, HttpSession httpSession) {
+    public String getOrderOfGoods(Model model, HttpSession httpSession) {
+        List<OrderOfGoods> orderOfGoods = orderOfGoodsService.getOrderOfGoodsService();
 
         return "order";
     }

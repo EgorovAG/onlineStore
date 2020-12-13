@@ -48,14 +48,15 @@ public class DefaultProductDao implements ProductDao {
     }
 
     @Override
-    public void saveProductDao(Product product) {
+    public Product saveProductDao(Product product) {
         try {
             ProductEntity productEntity = ProductConverter.toEntity(product);
-            ProductJpaRepository productJpaRepository = this.productJpaRepository;
-            productJpaRepository.save(productEntity);
+            ProductEntity productEntityNew = productJpaRepository.save(productEntity);
             log.info("Product with name: {} saved", product.getName());
+            return ProductConverter.fromEntity(productEntityNew);
         } catch (Exception e) {
             log.error("Fail to save product with name: {}", product.getName(), e);
+            return null;
         }
     }
 

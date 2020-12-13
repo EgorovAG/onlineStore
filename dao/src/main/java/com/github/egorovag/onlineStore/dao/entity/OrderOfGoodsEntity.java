@@ -16,6 +16,7 @@ public class OrderOfGoodsEntity {
     private long user_id;
     private long product_id;
     private LocalDate dateOrder;
+    private int priceOrder;
     private int quantityOrder;
     private OrderStatus orderStatus;
     private String deliveryAddress;
@@ -25,21 +26,6 @@ public class OrderOfGoodsEntity {
     private ProductEntity productEntity;
 
     public OrderOfGoodsEntity() {
-    }
-
-    public OrderOfGoodsEntity(long id, long user_id, long product_id, LocalDate dateOrder,
-                              int quantityOrder, OrderStatus orderStatus, String deliveryAddress,
-                              LocalDate deliveryDate, UserEntity userEntity, ProductEntity productEntity) {
-        this.id = id;
-        this.user_id = user_id;
-        this.product_id = product_id;
-        this.dateOrder = dateOrder;
-        this.quantityOrder = quantityOrder;
-        this.orderStatus = orderStatus;
-        this.deliveryAddress = deliveryAddress;
-        this.deliveryDate = deliveryDate;
-        this.userEntity = userEntity;
-        this.productEntity = productEntity;
     }
 
     @Id
@@ -62,7 +48,7 @@ public class OrderOfGoodsEntity {
         this.user_id = user_id;
     }
 
-    @Column(name = "user_id", insertable = false, updatable = false)
+    @Column(name = "product_id", insertable = false, updatable = false)
     public long getProduct_id() {
         return product_id;
     }
@@ -78,6 +64,15 @@ public class OrderOfGoodsEntity {
 
     public void setDateOrder(LocalDate dateOrder) {
         this.dateOrder = dateOrder;
+    }
+
+    @Column
+    public int getPriceOrder() {
+        return priceOrder;
+    }
+
+    public void setPriceOrder(int priceOrder) {
+        this.priceOrder = priceOrder;
     }
 
     @Column

@@ -10,7 +10,7 @@ public interface ProductDao {
 
     Product getProductByIdDao(Long id);
 
-    void saveProductDao(Product product);
+    Product saveProductDao(Product product);
 
     boolean deleteProductByIdDao(Long id);
 }

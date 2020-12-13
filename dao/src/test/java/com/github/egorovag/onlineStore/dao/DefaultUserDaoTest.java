@@ -4,6 +4,7 @@ import com.github.egorovag.onlineStore.dao.config.DaoConfig;
 import com.github.egorovag.onlineStore.model.AuthUser;
 import com.github.egorovag.onlineStore.model.User;
 import com.github.egorovag.onlineStore.model.enums.Role;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = DaoConfig.class)
-@Transactional
+//@Transactional
 class DefaultUserDaoTest {
 
     @Autowired
@@ -27,39 +28,46 @@ class DefaultUserDaoTest {
     @Autowired
     UserDao userDao;
 
-//    private AuthUser authUserNew;
-    private User userNew;
+    private AuthUser authUserSave;
+    private User userSave;
 
     @BeforeEach
     void createAuthUserAndUser() {
         User user = new User("user", "user", "email", "55555");
-        userNew = userDao.saveUserDao(user);
-//        AuthUser authUser = new AuthUser("authUser", "authUserPass", Role.Seller, userNew.getId());
-//        authUserNew = authUserDao.saveAuthUserDao(authUser);
+        userSave = userDao.saveUserDao(user);
+        AuthUser authUser = new AuthUser("authUser", "authUserPass", Role.Seller, userSave.getId());
+        authUserSave = authUserDao.saveAuthUserDao(authUser);
+    }
+
+
+    @Test
+    void readUserByUserIdDao() {
+        User userNew = userDao.readUserByUserIdDao(userSave.getId());
+        Assertions.assertEquals("user", userNew.getFirstName());
+    }
+
+//    @Test
+//    void readUserByAuthUserDao() {
+//        User userRead = userDao.readUserByAuthUserDao(authUserSave);
+//        Assertions.assertEquals("user", userRead.getFirstName());
+//    }
+
+    @Test
+    void testReadUserByAuthUserLoginDao() {
+        User userRead = userDao.readUserByAuthUserLoginDao(authUserSave.getLogin());
+        Assertions.assertEquals("user", userRead.getFirstName());
     }
 
     @Test
     void testSaveUserDao() {
-        assertEquals("user", userNew.getFirstName());
+        assertEquals("user", userSave.getFirstName());
     }
 
-//    @Test
-//    void readUserByUserIdDao() {
-//    }
 
-//    @Test
-//    void readUserByAuthUserDao() {
-//    }
+    @Test
+    void deleteUserDao() {
+        boolean res = userDao.deleteUserDao(userSave.getId());
+        Assertions.assertTrue(res);
 
-//    @Test
-//    void testReadUserByAuthUserLoginDao() {
-//
-//
-//        }
-
-
-//
-//    @Test
-//    void deleteUserDao() {
-//    }
+    }
 }

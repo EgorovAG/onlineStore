@@ -37,7 +37,7 @@ public class DaoConfig {
 
     @Bean
     public OrderOfGoodsDao orderOfGoodsDao() {
-        return new DefaultOrderOfGoodsDao();
+        return new DefaultOrderOfGoodsDao(userDao(), productDao());
     }
 
     @Bean

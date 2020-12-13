@@ -9,6 +9,7 @@ public class OrderOfGoods {
     private long user_id;
     private long product_id;
     private LocalDate dateOrder;
+    private int priceOrder;
     private int quantityOrder;
     private OrderStatus orderStatus;
     private String deliveryAddress;
@@ -17,16 +18,33 @@ public class OrderOfGoods {
     public OrderOfGoods() {
     }
 
-    public OrderOfGoods(long id, long user_id, long product_id, LocalDate dateOrder, int quantityOrder,
+    public OrderOfGoods(long id, long user_id, long product_id, LocalDate dateOrder, int priceOrder, int quantityOrder,
                         OrderStatus orderStatus, String deliveryAddress, LocalDate deliveryDate) {
         this.id = id;
         this.user_id = user_id;
         this.product_id = product_id;
         this.dateOrder = dateOrder;
+        this.priceOrder = priceOrder;
         this.quantityOrder = quantityOrder;
         this.orderStatus = orderStatus;
         this.deliveryAddress = deliveryAddress;
         this.deliveryDate = deliveryDate;
+    }
+
+    public OrderOfGoods(long user_id, long product_id, LocalDate dateOrder, int priceOrder, int quantityOrder,
+                        OrderStatus orderStatus, String deliveryAddress, LocalDate deliveryDate) {
+        this.user_id = user_id;
+        this.product_id = product_id;
+        this.dateOrder = dateOrder;
+        this.priceOrder = priceOrder;
+        this.quantityOrder = quantityOrder;
+        this.orderStatus = orderStatus;
+        this.deliveryAddress = deliveryAddress;
+        this.deliveryDate = deliveryDate;
+    }
+
+    public OrderOfGoods(long user_id) {
+        this.user_id = user_id;
     }
 
     public long getId() {
@@ -59,6 +77,14 @@ public class OrderOfGoods {
 
     public void setDateOrder(LocalDate dateOrder) {
         this.dateOrder = dateOrder;
+    }
+
+    public int getPriceOrder() {
+        return priceOrder;
+    }
+
+    public void setPriceOrder(int priceOrder) {
+        this.priceOrder = priceOrder;
     }
 
     public int getQuantityOrder() {

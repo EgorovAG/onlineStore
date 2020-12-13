@@ -53,4 +53,11 @@ class DefaultAuthUserDaoTest {
     void testSaveAuthUserDao() {
         assertEquals("authUser", authUserNew.getLogin());
     }
+
+    @Test
+    void testDeleteAuthUserByIdDao(){
+        boolean res = authUserDao.deleteAuthUserByIdDao(authUserNew.getId());
+        assertTrue(res);
+
+    }
 }

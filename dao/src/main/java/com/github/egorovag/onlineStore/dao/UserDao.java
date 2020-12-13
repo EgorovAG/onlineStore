@@ -5,8 +5,14 @@ import com.github.egorovag.onlineStore.model.User;
 
 public interface UserDao {
     User readUserByUserIdDao(long id);
-    User readUserByAuthUserDao(AuthUser authUser);
+
+//    User readUserByAuthUserDao(AuthUser authUser);
+
     User readUserByAuthUserLoginDao(String login);
+
     User saveUserDao(User user);
+
     boolean deleteUserDao(Long id);
+
+    User updateUserDao(User user);
 }

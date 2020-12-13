@@ -30,17 +30,17 @@ public class DefaultUserDao implements UserDao {
         }
     }
 
-        @Override
-        public User readUserByAuthUserDao(AuthUser authUser) {
-            try {
-                UserEntity userEntity = userJpaRepository.findUserEntityByAuthUserEntity(AuthUserConverter.toEntity(authUser));
-                log.info("User with authUserLogin: {} read", authUser.getLogin());
-                return UserConverter.fromEntity(userEntity);
-            } catch (Exception e) {
-                log.error("Fail to read user with authUserLogin: {}", authUser.getLogin(), e);
-                return null;
-            }
-    }
+//        @Override
+//        public User readUserByAuthUserDao(AuthUser authUser) {
+//            try {
+//                UserEntity userEntity = userJpaRepository.findUserEntityByAuthUserEntity(AuthUserConverter.toEntity(authUser));
+//                log.info("User with authUserLogin: {} read", authUser.getLogin());
+//                return UserConverter.fromEntity(userEntity);
+//            } catch (Exception e) {
+//                log.error("Fail to read user with authUserLogin: {}", authUser.getLogin(), e);
+//                return null;
+//            }
+//    }
 
     @Override
     public User readUserByAuthUserLoginDao(String login) {
@@ -77,4 +77,9 @@ public class DefaultUserDao implements UserDao {
                 return false;
             }
         }
+
+    @Override
+    public User updateUserDao(User user) {
+        return null;
+    }
 }

@@ -13,6 +13,7 @@ public class OrderOfGoodsConverter {
                 orderOfGoodsEntity.getUser_id(),
                 orderOfGoodsEntity.getProduct_id(),
                 orderOfGoodsEntity.getDateOrder(),
+                orderOfGoodsEntity.getPriceOrder(),
                 orderOfGoodsEntity.getQuantityOrder(),
                 orderOfGoodsEntity.getOrderStatus(),
                 orderOfGoodsEntity.getDeliveryAddress(),
@@ -28,6 +29,7 @@ public class OrderOfGoodsConverter {
         orderOfGoodsEntity.setUser_id(orderOfGoods.getUser_id());
         orderOfGoodsEntity.setProduct_id(orderOfGoods.getProduct_id());
         orderOfGoodsEntity.setDateOrder(orderOfGoods.getDateOrder());
+        orderOfGoodsEntity.setPriceOrder(orderOfGoods.getPriceOrder());
         orderOfGoodsEntity.setQuantityOrder(orderOfGoods.getQuantityOrder());
         orderOfGoodsEntity.setOrderStatus(orderOfGoods.getOrderStatus());
         orderOfGoodsEntity.setDeliveryAddress(orderOfGoods.getDeliveryAddress());
