@@ -70,6 +70,14 @@
         <put-attribute name="body" value="/WEB-INF/view/page/order.jspx"/>
     </definition>
 
+    <definition name="orderListForSeller" extends="defaultWithoutSidebar">
+        <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/orderListForSeller.jspx"/>
+    </definition>
+
+    <definition name="listOfRegisteredUsers" extends="defaultWithoutSidebar">
+        <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/listOfRegisteredUsers.jspx"/>
+    </definition>
+
 
 
 

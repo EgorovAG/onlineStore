@@ -11,11 +11,11 @@ import javax.persistence.*;
 @Table(name = "authUser")
 public class AuthUserEntity {
 
-    private long id;
+    private Long id;
     private String login;
     private String password;
     private Role role;
-    private long user_id;
+    private Long user_id;
 
     private UserEntity userEntity;
 
@@ -25,7 +25,7 @@ public class AuthUserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -62,11 +62,11 @@ public class AuthUserEntity {
     }
 
     @Column(insertable = false, updatable = false)
-    public long getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(long user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 

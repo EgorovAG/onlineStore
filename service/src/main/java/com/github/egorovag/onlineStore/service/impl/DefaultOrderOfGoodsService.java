@@ -3,6 +3,7 @@ package com.github.egorovag.onlineStore.service.impl;
 import com.github.egorovag.onlineStore.dao.OrderOfGoodsDao;
 import com.github.egorovag.onlineStore.model.OrderOfGoods;
 import com.github.egorovag.onlineStore.service.OrderOfGoodsService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,7 +15,20 @@ public class DefaultOrderOfGoodsService implements OrderOfGoodsService {
     }
 
     @Override
+    @Transactional
     public List<OrderOfGoods> getOrderOfGoodsService() {
-        return orderOfGoodsDao.getOrderOfGoodsDao();
+        return orderOfGoodsDao.getListOrderOfGoodsDao();
+    }
+
+    @Override
+    @Transactional
+    public void deleteOrderOfGoodsService(Long id) {
+        orderOfGoodsDao.deleteOrderOfGoodsDao(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateOrderCompletedForOrderOfGoodsByIdService(Long id) {
+        orderOfGoodsDao.updateOrderCompletedForOrderOfGoodsByIdDao(id);
     }
 }

@@ -67,7 +67,12 @@ public class WebConfig {
 
     @Bean
     public OrderController orderServlet() {
-        return new OrderController();
+        return new OrderController(serviceConfig.orderOfGoodsService());
+    }
+
+    @Bean
+    public UserController userController() {
+        return new UserController(serviceConfig.userService());
     }
 
 

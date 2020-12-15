@@ -25,7 +25,7 @@ public class ServiceConfig {
 
     @Bean
     public UserService userService() {
-        return new DefaultUserService(daoConfig.userDao());
+        return new DefaultUserService(daoConfig.userDao(), daoConfig.authUserDao());
     }
 
     @Bean

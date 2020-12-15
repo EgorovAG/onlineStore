@@ -5,9 +5,9 @@ import com.github.egorovag.onlineStore.model.enums.OrderStatus;
 import java.time.LocalDate;
 
 public class OrderOfGoods {
-    private long id;
-    private long user_id;
-    private long product_id;
+    private Long id;
+    private Long user_id;
+    private Long product_id;
     private LocalDate dateOrder;
     private int priceOrder;
     private int quantityOrder;
@@ -18,7 +18,7 @@ public class OrderOfGoods {
     public OrderOfGoods() {
     }
 
-    public OrderOfGoods(long id, long user_id, long product_id, LocalDate dateOrder, int priceOrder, int quantityOrder,
+    public OrderOfGoods(Long id, Long user_id, Long product_id, LocalDate dateOrder, int priceOrder, int quantityOrder,
                         OrderStatus orderStatus, String deliveryAddress, LocalDate deliveryDate) {
         this.id = id;
         this.user_id = user_id;
@@ -31,7 +31,7 @@ public class OrderOfGoods {
         this.deliveryDate = deliveryDate;
     }
 
-    public OrderOfGoods(long user_id, long product_id, LocalDate dateOrder, int priceOrder, int quantityOrder,
+    public OrderOfGoods(Long user_id, Long product_id, LocalDate dateOrder, int priceOrder, int quantityOrder,
                         OrderStatus orderStatus, String deliveryAddress, LocalDate deliveryDate) {
         this.user_id = user_id;
         this.product_id = product_id;
@@ -43,31 +43,31 @@ public class OrderOfGoods {
         this.deliveryDate = deliveryDate;
     }
 
-    public OrderOfGoods(long user_id) {
+    public OrderOfGoods(Long user_id) {
         this.user_id = user_id;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(long user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
-    public long getProduct_id() {
+    public Long getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(long product_id) {
+    public void setProduct_id(Long product_id) {
         this.product_id = product_id;
     }
 

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 public class Product {
-    private long id;
+    private Long id;
     private ProductName productName;
     private String name;
     private String description;
@@ -24,7 +24,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Product(long id, ProductName productName, String name, String description, int price, int quantity) {
+    public Product(Long id, ProductName productName, String name, String description, int price, int quantity) {
         this.id = id;
         this.productName = productName;
         this.name = name;
@@ -33,11 +33,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -2,7 +2,9 @@ package com.github.egorovag.onlineStore.dao.impl;
 
 import com.github.egorovag.onlineStore.dao.UserDao;
 import com.github.egorovag.onlineStore.dao.converter.AuthUserConverter;
+import com.github.egorovag.onlineStore.dao.converter.OrderOfGoodsConverter;
 import com.github.egorovag.onlineStore.dao.converter.UserConverter;
+import com.github.egorovag.onlineStore.dao.entity.OrderOfGoodsEntity;
 import com.github.egorovag.onlineStore.dao.entity.UserEntity;
 import com.github.egorovag.onlineStore.dao.repository.UserJpaRepository;
 import com.github.egorovag.onlineStore.model.AuthUser;
@@ -11,6 +13,9 @@ import org.hibernate.HibernateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class DefaultUserDao implements UserDao {
     private static final Logger log = LoggerFactory.getLogger(DefaultUserDao.class);
@@ -50,6 +55,20 @@ public class DefaultUserDao implements UserDao {
             return UserConverter.fromEntity(userEntity);
         } catch (Exception e) {
             log.error("Fail to read user with login: {}", login, e);
+            return null;
+        }
+    }
+
+    @Override
+    public List<User> readListUser() {
+        try {
+            List<UserEntity> userEntities = userJpaRepository.findAll();
+            log.info("List<User> read");
+            return userEntities.stream()
+                    .map(UserConverter::fromEntity)
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            log.error("Fail to read List<User>", e);
             return null;
         }
     }

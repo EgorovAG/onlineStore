@@ -15,6 +15,8 @@ import org.springframework.util.Assert;
 
 import javax.transaction.Transactional;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -65,9 +67,15 @@ class DefaultUserDaoTest {
 
 
     @Test
-    void deleteUserDao() {
+    void testDeleteUserDao() {
         boolean res = userDao.deleteUserDao(userSave.getId());
         Assertions.assertTrue(res);
-
     }
+
+    @Test
+    void testReadListUser() {
+        List<User> userList = userDao.readListUser();
+        Assertions.assertEquals("user", userList.get(0).getFirstName());
+    }
+
 }

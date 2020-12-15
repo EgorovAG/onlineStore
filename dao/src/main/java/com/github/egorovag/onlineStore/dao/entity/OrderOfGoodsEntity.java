@@ -12,9 +12,9 @@ import java.time.LocalDate;
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Table(name = "orderOfGoods")
 public class OrderOfGoodsEntity {
-    private long id;
-    private long user_id;
-    private long product_id;
+    private Long id;
+    private Long user_id;
+    private Long product_id;
     private LocalDate dateOrder;
     private int priceOrder;
     private int quantityOrder;
@@ -31,29 +31,29 @@ public class OrderOfGoodsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @Column(name = "user_id", insertable = false, updatable = false)
-    public long getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(long user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
     @Column(name = "product_id", insertable = false, updatable = false)
-    public long getProduct_id() {
+    public Long getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(long product_id) {
+    public void setProduct_id(Long product_id) {
         this.product_id = product_id;
     }
 

@@ -49,7 +49,7 @@ class DefaultOrderOfGoodsDaoTest {
         Product product = new Product(ProductName.Faucets, "Gloria", "color white", 50, 10);
         productNew = productDao.saveProductDao(product);
         OrderOfGoods orderOfGoods = new OrderOfGoods(userNew.getId(), productNew.getId(),
-                LocalDate.of(2020, 12, 5), 50, 1, OrderStatus.OrderCompleted,
+                LocalDate.of(2020, 12, 5), 50, 1, OrderStatus.InWork,
                 "Minsk,Skoriny str.5", LocalDate.of(2020, 12, 10));
         orderOfGoodsNew = orderOfGoodsDao.saveOrderOfGoodsDao(orderOfGoods);
     }
@@ -74,7 +74,7 @@ class DefaultOrderOfGoodsDaoTest {
     @Test
     void testUpdateOrderOfGoodsDao() {
         OrderOfGoods orderOfGoods = new OrderOfGoods(userNew.getId(), productNew.getId(),
-                LocalDate.of(2030, 12, 5), 10, 5, OrderStatus.OrderCompleted,
+                LocalDate.of(2030, 12, 5), 10, 5, OrderStatus.InWork,
                 "Minsk,Skoriny str.5", LocalDate.of(2030, 12, 10));
         OrderOfGoods orderOfGoodsNewUpdate = orderOfGoodsDao.updateOrderOfGoodsDao(orderOfGoods);
         Assertions.assertEquals(orderOfGoods.getPriceOrder(), orderOfGoodsNewUpdate.getPriceOrder());
@@ -85,6 +85,13 @@ class DefaultOrderOfGoodsDaoTest {
         orderOfGoodsDao.getOrderOfGoodsDao(orderOfGoodsNew.getId());
         Assertions.assertEquals(userNew.getId(), orderOfGoodsNew.getUser_id());
     }
+
+    @Test
+    void testUpdateOrderCompletedForOrderOfGoodsByIdDao(){
+        boolean res = orderOfGoodsDao.updateOrderCompletedForOrderOfGoodsByIdDao(orderOfGoodsNew.getId());
+        Assertions.assertTrue(res);
+    }
+
 
 
 

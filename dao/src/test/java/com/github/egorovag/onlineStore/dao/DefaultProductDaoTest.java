@@ -54,5 +54,4 @@ class DefaultProductDaoTest {
         boolean res = productDao.deleteProductByIdDao(productNew.getId());
         Assertions.assertTrue(res);
     }
-
 }

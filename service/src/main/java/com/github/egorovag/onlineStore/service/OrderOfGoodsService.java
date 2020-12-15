@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface OrderOfGoodsService {
     List<OrderOfGoods> getOrderOfGoodsService();
+
+    void deleteOrderOfGoodsService(Long id);
+
+    void updateOrderCompletedForOrderOfGoodsByIdService(Long id);
 }

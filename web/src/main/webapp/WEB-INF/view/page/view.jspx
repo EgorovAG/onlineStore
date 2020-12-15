@@ -7,7 +7,7 @@
 
     <c:if test="${product !=null}">
 
-    <h2 style="text-align: center"><spring:message code="label.productDescription"/></h2>
+        <h2 style="text-align: center"><spring:message code="label.productDescription"/></h2>
 
         ${product}
 
@@ -17,14 +17,12 @@
                 <spring:message code="label.productNo"/>
             </c:when>
             <c:otherwise>
-                <form name="order" action="${pageContext.request.contextPath}/catalog/order" method="post" >
+                <form name="order" action="${pageContext.request.contextPath}/catalog/order" method="post">
                     <button name="order" value="${product.id}"><spring:message code="button.buy"/></button>
                 </form>
 
             </c:otherwise>
         </c:choose>
-
-
 
 
     </c:if>

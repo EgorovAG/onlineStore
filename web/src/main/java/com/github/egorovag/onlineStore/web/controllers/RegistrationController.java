@@ -38,8 +38,6 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String doPost(Model map, HttpSession session, AuthUser authUser, User user) {
-        System.out.println(authUser);
-        System.out.println(user);
         if (!authUserService.checkLogin(authUser.getLogin(), authUser.getPassword())) {
             User userNew = userService.saveUserService(user);
             authUser.setRole(Role.Client);

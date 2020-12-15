@@ -15,5 +15,5 @@ public interface OrderOfGoodsDao {
 
     OrderOfGoods getOrderOfGoodsDao(Long id);
 
-
+    boolean updateOrderCompletedForOrderOfGoodsByIdDao(Long id);
 }

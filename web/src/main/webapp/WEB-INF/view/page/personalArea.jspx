@@ -53,13 +53,13 @@
         <h1 style="text-align: center"><spring:message code="text.personalArea"/></h1>
 
         <fieldset>
-            <form action="${pageContext.request.contextPath}/toHomePageJspx">
+            <form action="${pageContext.request.contextPath}/order/orderListForSeller">
                 <button name="viewOrders"><spring:message code="button.orderList"/></button>
             </form>
         </fieldset>
 
         <fieldset>
-            <form action="${pageContext.request.contextPath}/toHomePageJspx">
+            <form action="${pageContext.request.contextPath}/user/registeredUser">
                 <button name="viewingRegisteredUsers"><spring:message code="button.listOfRegisteredUsers"/></button>
             </form>
         </fieldset>

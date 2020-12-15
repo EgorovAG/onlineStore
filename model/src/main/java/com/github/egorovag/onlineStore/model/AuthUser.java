@@ -3,18 +3,18 @@ package com.github.egorovag.onlineStore.model;
 import com.github.egorovag.onlineStore.model.enums.Role;
 
 public class AuthUser {
-    private long id;
+    private Long id;
     //    @Pattern(regexp = "[A-Za-zА-Яа-я0-9]{1,50}", message = "логин должен содержать не больше 50 символов и состоять только из букв и цифр")
     private String login;
     //    @Pattern(regexp = "[A-Za-zА-Яа-я0-9]{1,50}", message = "пароль должен содержать не больше 50 символов и состоять только из букв и цифр")
     private String password;
     private Role role;
-    private long user_id;
+    private Long user_id;
 
     public AuthUser() {
     }
 
-    public AuthUser(long id, String login, String password, Role role, long user_id) {
+    public AuthUser(Long id, String login, String password, Role role, Long user_id) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -35,11 +35,11 @@ public class AuthUser {
         this.user_id = user_id;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,11 +67,11 @@ public class AuthUser {
         this.role = role;
     }
 
-    public long getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(long user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 

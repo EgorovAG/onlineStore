@@ -1,0 +1,61 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:s="http://www.springframework.org/tags/form"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+    <c:if test="${orderOfGoods!=null}">
+
+        <h2 style="text-align: center"><spring:message code="label.listOrderOfGoods"/></h2>
+
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                <th>№</th>
+                <th>Product_id</th>
+                <th><spring:message code="label.dateOrder"/></th>
+                <th><spring:message code="label.priceOrder"/></th>
+                <th><spring:message code="label.quantityOrder"/></th>
+                <th><spring:message code="label.orderStatus"/></th>
+                <th><spring:message code="label.deliveryAddress"/></th>
+                <th><spring:message code="label.deliveryDate"/></th>
+                <th></th>
+            </tr>
+
+            <c:set var="x" value="1"/>
+            <c:forEach var="orderOfGoods" items="${orderOfGoods}">
+                <tr>
+                    <td><c:out value="${x}"/>
+                        <c:set var="x" value="${x+1}"/></td>
+
+                    <td>${orderOfGoods.product_id}</td>
+                    <td>${orderOfGoods.dateOrder}</td>
+                    <td>${orderOfGoods.priceOrder}</td>
+                    <td>${orderOfGoods.quantityOrder}</td>
+                    <td>${orderOfGoods.orderStatus}</td>
+                    <td>${orderOfGoods.deliveryAddress}</td>
+                    <td>${orderOfGoods.deliveryDate}</td>
+                    <td>
+                        <form name="orderDelete" action="${pageContext.request.contextPath}/order/delete" method="post">
+                            <input name="id" value="${orderOfGoods.id}" hidden="hidden"/>
+                            <button name="productView"><spring:message code="button.delete"/></button>
+                        </form>
+                        <form name="orderCompleted" action="${pageContext.request.contextPath}/order/orderCompleted"
+                              method="post">
+                            <input name="id" value="${orderOfGoods.id}" hidden="hidden"/>
+                            <button name="orderCompleted"><spring:message code="button.orderCompleted"/></button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
+
+    <c:if test="${orderOfGoods==null}">
+        <h2 style="text-align: center"><spring:message code="label.orderListIsEmpty"/></h2>
+
+    </c:if>
+
+
+</jsp:root>
+

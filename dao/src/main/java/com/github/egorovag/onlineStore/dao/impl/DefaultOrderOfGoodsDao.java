@@ -11,7 +11,6 @@ import com.github.egorovag.onlineStore.dao.entity.ProductEntity;
 import com.github.egorovag.onlineStore.dao.entity.UserEntity;
 import com.github.egorovag.onlineStore.dao.repository.OrderOfGoodsJpaRepository;
 import com.github.egorovag.onlineStore.model.OrderOfGoods;
-import org.hibernate.HibernateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,6 +100,19 @@ public class DefaultOrderOfGoodsDao implements OrderOfGoodsDao {
         } catch (Exception e) {
             log.error("Fail to read OrderOfGoods with : {} id ", id, e);
             return null;
+        }
+    }
+
+    @Override
+    public boolean updateOrderCompletedForOrderOfGoodsByIdDao(Long id) {
+        try{
+            orderOfGoodsJpaRepository.updateOrderCompletedForOrderOfGoodsById(id);
+            log.info("OrderOfGoods with : {} id updated", id);
+            return true;
+        } catch (Exception e) {
+            log.error("Fail to update OrderOfGoods with : {} id ", id, e);
+            return false;
+
         }
     }
 

@@ -5,8 +5,48 @@
           xmlns:c="http://java.sun.com/jsp/jstl/core"
           version="2.0">
 
-    ${
+    <c:if test="${listAuthUserWithUserDto!=null}">
 
+        <h2 style="text-align: center"><spring:message code="label.listAuthUserWithUserDto"/></h2>
+
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                <th>№</th>
+                <th><spring:message code="label.login"/></th>
+                <th><spring:message code="label.password"/></th>
+                <th><spring:message code="label.firstName"/></th>
+                <th><spring:message code="label.lastName"/></th>
+                <th><spring:message code="label.email"/></th>
+                <th><spring:message code="label.phone"/></th>
+                <th> </th>
+            </tr>
+
+            <c:set var="x" value="1"/>
+            <c:forEach var="listAuthUserWithUserDto" items="${listAuthUserWithUserDto}">
+                <tr>
+                    <td><c:out value="${x}"/>
+                        <c:set var="x" value="${x+1}"/></td>
+
+                    <td>${listAuthUserWithUserDto.login}</td>
+                    <td>${listAuthUserWithUserDto.password}</td>
+                    <td>${listAuthUserWithUserDto.firstName}</td>
+                    <td>${listAuthUserWithUserDto.lastName}</td>
+                    <td>${listAuthUserWithUserDto.email}</td>
+                    <td>${listAuthUserWithUserDto.phone}</td>
+                    <td>
+                        <form name="userDelete" action="${pageContext.request.contextPath}/user/delete" method="post">
+                            <input name="user_id" value="${listAuthUserWithUserDto.user_id}" hidden="hidden"/>
+                            <button name="productView"><spring:message code="button.delete"/></button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
+
+    <c:if test="${listAuthUserWithUserDto==null}">
+        <h2 style="text-align: center"><spring:message code="label.authUserWithUserListIsEmpty"/></h2>
+    </c:if>
 
 
 </jsp:root>
