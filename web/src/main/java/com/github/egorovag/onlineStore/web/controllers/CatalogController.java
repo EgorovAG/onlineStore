@@ -25,8 +25,8 @@ public class CatalogController {
     }
 
     @GetMapping("/product")
-    public String getProductByName(@RequestParam(value = "productName") String productName, Model model) {
-        List<Product> products = productService.getProductByProductNameService(ProductName.valueOf(productName));
+    public String getProductByName(@RequestParam(value = "productName") ProductName productName, Model model) {
+        List<Product> products = productService.getProductByProductNameService(productName);
         if (products == null || products.isEmpty()) {
             model.addAttribute("products", null);
         } else {
@@ -37,7 +37,7 @@ public class CatalogController {
 
     @GetMapping("/productView")
     public String getProductById(@RequestParam(value = "productView") Long id, Model model) {
-        Product product = productService.getProductByIDService(id);
+        Product product = productService.getProductByIdService(id);
         if (product.equals(null)) {
             model.addAttribute("product", null);
         } else {

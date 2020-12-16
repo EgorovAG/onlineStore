@@ -71,4 +71,19 @@ public class DefaultProductDao implements ProductDao {
             return false;
         }
     }
+
+    @Override
+    public boolean updateProductDao(Product product) {
+        try {
+            ProductEntity productEntity = ProductConverter.toEntity(product);
+            productJpaRepository.updateProductByProduct(productEntity.getId(), productEntity.getProductName(),
+                    productEntity.getName(), productEntity.getDescription(), productEntity.getQuantity(),
+                    productEntity.getPrice());
+            log.info("Product with id: {} updated", product.getId());
+            return true;
+        } catch (Exception e) {
+            log.error("Fail to update product with id: {}", product.getId(), e);
+            return false;
+        }
+    }
 }

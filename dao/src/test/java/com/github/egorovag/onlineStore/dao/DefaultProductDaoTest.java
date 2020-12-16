@@ -27,9 +27,9 @@ class DefaultProductDaoTest {
 
     @BeforeEach
     void createProduct() {
-        Product product = new Product(ProductName.Faucets, "Gloria", "this is super faucet", 30, 5);
+        Product product = new Product(ProductName.Faucets, "Gloria", "this is super faucet", 30,
+                5);
         productNew = productDao.saveProductDao(product);
-
     }
 
     @Test
@@ -54,4 +54,13 @@ class DefaultProductDaoTest {
         boolean res = productDao.deleteProductByIdDao(productNew.getId());
         Assertions.assertTrue(res);
     }
+
+    @Test
+    void testUpdateProductDao() {
+        Product productRes = new Product(productNew.getId(), ProductName.Faucets, "Tetra",
+                "this is  very very super faucet", 50, 3);
+        boolean res = productDao.updateProductDao(productRes);
+        Assertions.assertTrue(res);
+    }
+
 }

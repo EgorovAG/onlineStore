@@ -25,11 +25,11 @@ public class OrderController {
         this.orderOfGoodsService = orderOfGoodsService;
     }
 
-    @GetMapping()
-    public String getOrderOfGoods(Model model, HttpSession httpSession) {
-        List<OrderOfGoods> orderOfGoods = orderOfGoodsService.getOrderOfGoodsService();
-        return "order";
-    }
+//    @GetMapping()
+//    public String getOrderOfGoods(Model model, HttpSession httpSession) {
+//        List<OrderOfGoods> orderOfGoods = orderOfGoodsService.getOrderOfGoodsService();
+//        return "order";
+//    }
 
     @GetMapping("orderListForSeller")
     public String getOrderOfGoodsForSeller(Model model) {

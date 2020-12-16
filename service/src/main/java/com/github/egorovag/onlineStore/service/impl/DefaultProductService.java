@@ -23,7 +23,23 @@ public class DefaultProductService implements ProductService {
 
     @Override
     @Transactional
-    public Product getProductByIDService(Long id) {
+    public Product getProductByIdService(Long id) {
         return productDao.getProductByIdDao(id);
+    }
+
+    @Override
+    public boolean deleteProductByIdService(Long id) {
+        return productDao.deleteProductByIdDao(id);
+    }
+
+    @Override
+    public Product saveProductService(Product product) {
+        return productDao.saveProductDao(product);
+    }
+
+    @Override
+    public void updateProductService(Product product) {
+        productDao.updateProductDao(product);
+
     }
 }

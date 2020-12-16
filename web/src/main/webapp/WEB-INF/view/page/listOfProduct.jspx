@@ -1,0 +1,86 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:s="http://www.springframework.org/tags/form"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+    <h2 style="text-align: center"><spring:message code="label.listOfProduct"/></h2>
+    <br/>
+
+    <form>
+        <button name="productName" value="Faucets"
+                formaction="${pageContext.request.contextPath}/product/listOfProduct"><spring:message
+                code="label.faucets"/></button>
+        <button name="productName" value="Showers"
+                formaction="${pageContext.request.contextPath}/product/listOfProduct"><spring:message
+                code="label.showers"/></button>
+        <button name="productName" value="ToiletBowls"
+                formaction="${pageContext.request.contextPath}/product/listOfProduct"><spring:message
+                code="label.toiletBowls"/></button>
+        <button name="productName" value="WashBasins"
+                formaction="${pageContext.request.contextPath}/product/listOfProduct"><spring:message
+                code="label.washbasins"/></button>
+        <button name="productName" value="KitchenSinks"
+                formaction="${pageContext.request.contextPath}/product/listOfProduct"><spring:message
+                code="label.kitchenSinks"/></button>
+        <button name="productName" value="WaterFilters"
+                formaction="${pageContext.request.contextPath}/product/listOfProduct"><spring:message
+                code="label.waterFilters"/></button>
+    </form>
+    <form action="${pageContext.request.contextPath}/product/add">
+        <button name="addProduct"><spring:message code="label.addProduct"/></button>
+    </form>
+
+    <c:if test="${listOfProduct!=null}">
+
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                <th>№</th>
+                <th><spring:message code="label.productName"/></th>
+                <th><spring:message code="label.name"/></th>
+                <th><spring:message code="label.description"/></th>
+                <th><spring:message code="label.price"/></th>
+                <th><spring:message code="label.quantity"/></th>
+                <th></th>
+            </tr>
+
+            <c:set var="x" value="1"/>
+            <c:forEach var="listOfProduct" items="${listOfProduct}">
+                <tr>
+                    <td><c:out value="${x}"/>
+                        <c:set var="x" value="${x+1}"/></td>
+
+                    <td>${listOfProduct.productName}</td>
+                    <td>${listOfProduct.name}</td>
+                    <td>${listOfProduct.description}</td>
+                    <td>${listOfProduct.price}</td>
+                    <td>${listOfProduct.quantity}</td>
+                    <td>
+                        <form name="productDelete" action="${pageContext.request.contextPath}/product/delete"
+                              method="post">
+                            <input name="id" value="${listOfProduct.id}" hidden="hidden"/>
+                            <input name="productName" value="Faucets" hidden="hidden"/>
+                            <button name="productDelete"><spring:message code="button.delete"/></button>
+                        </form>
+                        <form name="productEdit" action="${pageContext.request.contextPath}/product/edit">
+                            <input name="id" value="${listOfProduct.id}" hidden="hidden"/>
+                            <input name="productName" value="${listOfProduct.productName}" hidden="hidden"/>
+                            <input name="name" value="${listOfProduct.name}" hidden="hidden"/>
+                            <input name="description" value="${listOfProduct.description}" hidden="hidden"/>
+                            <input name="price" value="${listOfProduct.price}" hidden="hidden"/>
+                            <input name="quantity" value="${listOfProduct.quantity}" hidden="hidden"/>
+                            <button name="productEdit"><spring:message code="button.edit"/></button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:if>
+
+    <c:if test="${listOfProduct==null}">
+        <h2 style="text-align: center"><spring:message code="label.listOfProductIsEmpty"/></h2>
+    </c:if>
+
+
+</jsp:root>

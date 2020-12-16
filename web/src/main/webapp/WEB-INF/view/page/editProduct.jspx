@@ -1,0 +1,20 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:s="http://www.springframework.org/tags/form"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+    <h2 style="text-align: center"><spring:message code="label.editProduct"/></h2>
+    <br/>
+
+    <form name="editProduct" action="${pageContext.request.contextPath}/product/edit" method="post"/>
+    <input name="id" value="${editProduct.id}" hidden="hidden"/>
+    <input name="productName" value="${editProduct.productName}" readonly="readonly"/>
+    <input name="name" value="${editProduct.name}"/>
+    <input name="description" value="${editProduct.description}"/>
+    <input name="price" value="${editProduct.price}"/>
+    <input name="quantity" value="${editProduct.quantity}"/>
+    <button name="productDelete"><spring:message code="button.apply"/></button>
+
+</jsp:root>

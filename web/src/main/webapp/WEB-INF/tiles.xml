@@ -78,6 +78,17 @@
         <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/listOfRegisteredUsers.jspx"/>
     </definition>
 
+    <definition name="listOfProduct" extends="defaultWithoutSidebar">
+        <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/listOfProduct.jspx"/>
+    </definition>
+
+    <definition name="addProduct" extends="defaultWithoutSidebar">
+        <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/addProduct.jspx"/>
+    </definition>
+    <definition name="editProduct" extends="defaultWithoutSidebar">
+        <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/editProduct.jspx"/>
+    </definition>
+
 
 
 
