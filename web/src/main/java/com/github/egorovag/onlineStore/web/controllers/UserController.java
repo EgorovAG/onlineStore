@@ -1,9 +1,11 @@
 package com.github.egorovag.onlineStore.web.controllers;
 
+import com.github.egorovag.onlineStore.model.AuthUser;
 import com.github.egorovag.onlineStore.model.dto.AuthUserWithUserDto;
 import com.github.egorovag.onlineStore.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +28,7 @@ public class UserController {
     }
 
     @GetMapping("/registeredUser")
-    public String GetListUsers(Model map) {
+    public String getListUsers(Model map) {
         List<AuthUserWithUserDto> listAuthUserWithUserDto = userService.readListAuthUserWithUserDto();
         if (listAuthUserWithUserDto == null || listAuthUserWithUserDto.isEmpty()) {
             map.addAttribute("listAuthUserWithUserDto", null);
@@ -36,7 +38,7 @@ public class UserController {
         return "listOfRegisteredUsers";
     }
     @PostMapping("/delete")
-    public String GetListUsers(@RequestParam(value = "user_id") Long user_id, Model map) {
+    public String getListUsers(@RequestParam(value = "user_id") Long user_id, Model map) {
         userService.deleteUserById(user_id);
         List<AuthUserWithUserDto> listAuthUserWithUserDto = userService.readListAuthUserWithUserDto();
         if (listAuthUserWithUserDto == null || listAuthUserWithUserDto.isEmpty()) {
@@ -45,5 +47,13 @@ public class UserController {
             map.addAttribute("listAuthUserWithUserDto", listAuthUserWithUserDto);
         }
         return "listOfRegisteredUsers";
+    }
+
+    @PostMapping("/personalData")
+    public String getAuthUserWithUserById(Model map) {
+        AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AuthUserWithUserDto authUserWithUserDto = userService.readListAuthUserWithUserDtoByUserId(authUser.getUser_id());
+        map.addAttribute("authUserWithUserDto", authUserWithUserDto);
+        return "userPersonalData";
     }
 }

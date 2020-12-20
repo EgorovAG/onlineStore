@@ -13,5 +13,7 @@ public interface UserService {
 
     List<AuthUserWithUserDto> readListAuthUserWithUserDto();
 
+    AuthUserWithUserDto readListAuthUserWithUserDtoByUserId(Long id);
+
     boolean deleteUserById(Long user_id);
 }

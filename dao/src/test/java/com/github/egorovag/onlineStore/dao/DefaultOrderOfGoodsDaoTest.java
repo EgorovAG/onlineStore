@@ -8,7 +8,6 @@ import com.github.egorovag.onlineStore.model.User;
 import com.github.egorovag.onlineStore.model.enums.OrderStatus;
 import com.github.egorovag.onlineStore.model.enums.ProductName;
 import com.github.egorovag.onlineStore.model.enums.Role;
-import net.sf.ehcache.search.expression.Or;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,8 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = DaoConfig.class)
@@ -62,7 +59,7 @@ class DefaultOrderOfGoodsDaoTest {
 
     @Test
     void testDeleteOrderOfGoodsDao() {
-        boolean res = orderOfGoodsDao.deleteOrderOfGoodsDao(orderOfGoodsNew.getId());
+        boolean res = orderOfGoodsDao.deleteOrderOfGoodsByIdDao(orderOfGoodsNew.getId());
         Assertions.assertTrue(res);
     }
 
@@ -82,8 +79,8 @@ class DefaultOrderOfGoodsDaoTest {
 
     @Test
     void testGetOrderOfGoodsDao() {
-        orderOfGoodsDao.getOrderOfGoodsDao(orderOfGoodsNew.getId());
-        Assertions.assertEquals(userNew.getId(), orderOfGoodsNew.getUser_id());
+        OrderOfGoods orderOfGoodsRes = orderOfGoodsDao.getOrderOfGoodsByIdDao(orderOfGoodsNew.getId());
+        Assertions.assertEquals(userNew.getId(), orderOfGoodsRes.getUser_id());
     }
 
     @Test
@@ -91,6 +88,12 @@ class DefaultOrderOfGoodsDaoTest {
         boolean res = orderOfGoodsDao.updateOrderCompletedForOrderOfGoodsByIdDao(orderOfGoodsNew.getId());
         Assertions.assertTrue(res);
     }
+    @Test
+    void testGetOrderOfGoodsByAuthUserIdDao(){
+        List<OrderOfGoods> orderOfGoodsByAuthUserIdRes = orderOfGoodsDao.getOrderOfGoodsByAuthUserIdDao(authUserNew.getId());
+        Assertions.assertEquals(OrderStatus.InWork, orderOfGoodsByAuthUserIdRes.get(0).getOrderStatus());
+    }
+
 
 
 

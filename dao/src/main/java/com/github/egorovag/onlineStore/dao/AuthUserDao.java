@@ -8,4 +8,5 @@ public interface AuthUserDao {
     AuthUser getAuthUserByIdDao(Long id);
     AuthUser saveAuthUserDao(AuthUser authUser);
     boolean deleteAuthUserByIdDao(Long id);
+    AuthUser getAuthUserByUserIdDao(Long id);
 }

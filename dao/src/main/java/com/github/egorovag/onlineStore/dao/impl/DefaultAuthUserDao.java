@@ -44,7 +44,7 @@ public class DefaultAuthUserDao implements AuthUserDao {
             log.info("Get authUser with id {} ", id);
             return AuthUserConverter.fromEntity(authUserEntity);
         } catch (Exception e) {
-            log.error("fail to get authUser with id {} ", id, e );
+            log.error("fail to get authUser with id {} ", id, e);
             return null;
         }
     }
@@ -77,4 +77,17 @@ public class DefaultAuthUserDao implements AuthUserDao {
             return false;
         }
     }
+
+    @Override
+    public AuthUser getAuthUserByUserIdDao(Long id) {
+        try {
+            AuthUserEntity authUserEntity = authUserJpaRepository.findByUser_id(id);
+            log.info("Get authUser with id {} ", id);
+            return AuthUserConverter.fromEntity(authUserEntity);
+        } catch (Exception e) {
+            log.error("fail to get authUser with id {} ", id, e);
+            return null;
+        }
+    }
 }
+

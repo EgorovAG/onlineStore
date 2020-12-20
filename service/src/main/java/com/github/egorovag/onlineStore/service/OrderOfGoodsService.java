@@ -10,4 +10,6 @@ public interface OrderOfGoodsService {
     void deleteOrderOfGoodsService(Long id);
 
     void updateOrderCompletedForOrderOfGoodsByIdService(Long id);
+
+    List<OrderOfGoods> getOrderOfGoodsByAuthUserIdService(Long id);
 }

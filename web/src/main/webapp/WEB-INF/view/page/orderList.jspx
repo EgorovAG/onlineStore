@@ -3,7 +3,7 @@
           xmlns:s="http://www.springframework.org/tags/form"
           xmlns:spring="http://www.springframework.org/tags"
           xmlns:c="http://java.sun.com/jsp/jstl/core"
-          version="2.0">
+          version="2.0" xmlns:sec="http://www.springframework.org/security/tags">
 
     <c:if test="${orderOfGoods!=null}">
 
@@ -19,7 +19,7 @@
                 <th><spring:message code="label.orderStatus"/></th>
                 <th><spring:message code="label.deliveryAddress"/></th>
                 <th><spring:message code="label.deliveryDate"/></th>
-                <th></th>
+                <th> </th>
             </tr>
 
             <c:set var="x" value="1"/>
@@ -40,11 +40,13 @@
                             <input name="id" value="${orderOfGoods.id}" hidden="hidden"/>
                             <button name="productView"><spring:message code="button.delete"/></button>
                         </form>
+                        <sec:authorize access="hasRole('ROLE_SELLER')">
                         <form name="orderCompleted" action="${pageContext.request.contextPath}/order/orderCompleted"
                               method="post">
                             <input name="id" value="${orderOfGoods.id}" hidden="hidden"/>
                             <button name="orderCompleted"><spring:message code="button.orderCompleted"/></button>
                         </form>
+                        </sec:authorize>
                     </td>
                 </tr>
             </c:forEach>

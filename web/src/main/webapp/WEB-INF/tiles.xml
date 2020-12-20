@@ -66,12 +66,12 @@
         <put-attribute name="body" value="/WEB-INF/view/page/cart.jspx"/>
     </definition>
 
-    <definition name="order" extends="default">
-        <put-attribute name="body" value="/WEB-INF/view/page/order.jspx"/>
+    <definition name="orderCreate" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/orderCreate.jspx"/>
     </definition>
 
-    <definition name="orderListForSeller" extends="defaultWithoutSidebar">
-        <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/orderListForSeller.jspx"/>
+    <definition name="orderList" extends="defaultWithoutSidebar">
+        <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/orderList.jspx"/>
     </definition>
 
     <definition name="listOfRegisteredUsers" extends="defaultWithoutSidebar">
@@ -85,60 +85,65 @@
     <definition name="addProduct" extends="defaultWithoutSidebar">
         <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/addProduct.jspx"/>
     </definition>
+
     <definition name="editProduct" extends="defaultWithoutSidebar">
         <put-attribute name="bodyWithoutSidebar" value="/WEB-INF/view/page/editProduct.jspx"/>
+    </definition>
+
+    <definition name="userPersonalData" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/userPersonalData.jspx"/>
     </definition>
 
 
 
 
-<!--    <definition name="successfulPayment" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/successfulPayment.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="successfulPayment" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/successfulPayment.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="orderPayment" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/orderPayment.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="orderPayment" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/orderPayment.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="viewOrder" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/viewOrder.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="viewOrder" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/viewOrder.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="login" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/entry.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="login" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/entry.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="personalArea" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/personalArea.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="personalArea" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/personalArea.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="youAreBlockClient" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/youAreBlockClient.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="youAreBlockClient" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/youAreBlockClient.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="orderListForAdmin" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/orderListForAdmin.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="orderListForAdmin" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/orderListForAdmin.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="orderListForClient" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/orderListForClient.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="orderListForClient" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/orderListForClient.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="toPayOrder" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/toPayOrder.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="toPayOrder" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/toPayOrder.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="registration" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/registration.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="registration" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/registration.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="clientMakesAnOrder" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/clientMakesAnOrder.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="clientMakesAnOrder" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/clientMakesAnOrder.jspx"/>-->
+    <!--    </definition>-->
 
-<!--    <definition name="showCopyPass" extends="default">-->
-<!--        <put-attribute name="body" value="/WEB-INF/view/page/showCopyPass.jspx"/>-->
-<!--    </definition>-->
+    <!--    <definition name="showCopyPass" extends="default">-->
+    <!--        <put-attribute name="body" value="/WEB-INF/view/page/showCopyPass.jspx"/>-->
+    <!--    </definition>-->
 
 </tiles-definitions>
 

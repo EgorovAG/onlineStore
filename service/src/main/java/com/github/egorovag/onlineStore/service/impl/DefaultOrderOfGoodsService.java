@@ -23,12 +23,17 @@ public class DefaultOrderOfGoodsService implements OrderOfGoodsService {
     @Override
     @Transactional
     public void deleteOrderOfGoodsService(Long id) {
-        orderOfGoodsDao.deleteOrderOfGoodsDao(id);
+        orderOfGoodsDao.deleteOrderOfGoodsByIdDao(id);
     }
 
     @Override
     @Transactional
     public void updateOrderCompletedForOrderOfGoodsByIdService(Long id) {
         orderOfGoodsDao.updateOrderCompletedForOrderOfGoodsByIdDao(id);
+    }
+
+    @Override
+    public List<OrderOfGoods> getOrderOfGoodsByAuthUserIdService(Long id) {
+        return orderOfGoodsDao.getOrderOfGoodsByAuthUserIdDao(id);
     }
 }

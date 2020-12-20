@@ -1,9 +1,12 @@
 package com.github.egorovag.onlineStore.web.controllers;
 
+import com.github.egorovag.onlineStore.model.AuthUser;
 import com.github.egorovag.onlineStore.model.OrderOfGoods;
 import com.github.egorovag.onlineStore.service.OrderOfGoodsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +42,7 @@ public class OrderController {
         } else {
             model.addAttribute("orderOfGoods", orderOfGoods);
         }
-        return "orderListForSeller";
+        return "orderList";
     }
 
     @PostMapping("delete")
@@ -51,7 +54,7 @@ public class OrderController {
         } else {
             model.addAttribute("orderOfGoods", orderOfGoods);
         }
-        return "orderListForSeller";
+        return "orderList";
     }
 
     @PostMapping("orderCompleted")
@@ -63,6 +66,19 @@ public class OrderController {
         } else {
             model.addAttribute("orderOfGoods", orderOfGoods);
         }
-        return "orderListForSeller";
+        return "orderList";
+    }
+
+    @PostMapping("orderListForClient")
+    public String getOrderListForClient(Model model) {
+        AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        orderOfGoodsService.getOrderOfGoodsByAuthUserIdService(authUser.getId());
+        List<OrderOfGoods> orderOfGoods = orderOfGoodsService.getOrderOfGoodsService();
+        if (orderOfGoods == null || orderOfGoods.isEmpty()) {
+            model.addAttribute("orderOfGoods", null);
+        } else {
+            model.addAttribute("orderOfGoods", orderOfGoods);
+        }
+        return "orderList";
     }
 }

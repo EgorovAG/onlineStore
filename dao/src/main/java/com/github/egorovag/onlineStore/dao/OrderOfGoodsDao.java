@@ -7,13 +7,15 @@ import java.util.List;
 public interface OrderOfGoodsDao {
     List<OrderOfGoods> getListOrderOfGoodsDao();
 
-    boolean deleteOrderOfGoodsDao(Long id);
+    boolean deleteOrderOfGoodsByIdDao(Long id);
 
     OrderOfGoods saveOrderOfGoodsDao(OrderOfGoods orderOfGoods);
 
     OrderOfGoods updateOrderOfGoodsDao(OrderOfGoods orderOfGoods);
 
-    OrderOfGoods getOrderOfGoodsDao(Long id);
+    OrderOfGoods getOrderOfGoodsByIdDao(Long id);
 
     boolean updateOrderCompletedForOrderOfGoodsByIdDao(Long id);
+
+    List<OrderOfGoods> getOrderOfGoodsByAuthUserIdDao(Long id);
 }

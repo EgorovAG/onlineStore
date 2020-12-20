@@ -12,8 +12,8 @@
         <h1 style="text-align: center"><spring:message code="text.personalArea"/></h1>
 
         <fieldset>
-            <form action="${pageContext.request.contextPath}/toHomePageJspx">
-                <button name="Cart"><spring:message code="button.myOrders"/></button>
+            <form action="${pageContext.request.contextPath}/order/orderListForClient" method="post">
+                <button name="orderClient"><spring:message code="button.myOrders"/></button>
             </form>
         </fieldset>
 
@@ -24,8 +24,8 @@
         </fieldset>
 
         <fieldset>
-            <form action="${pageContext.request.contextPath}/toHomePageJspx">
-                <button name="Cart"><spring:message code="button.personalData"/></button>
+            <form action="${pageContext.request.contextPath}/user/personalData" method="post">
+                <button name="personalData"><spring:message code="button.personalData"/></button>
             </form>
         </fieldset>
 

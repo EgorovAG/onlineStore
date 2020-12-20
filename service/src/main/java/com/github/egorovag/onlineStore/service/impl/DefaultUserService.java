@@ -54,6 +54,14 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
+    public AuthUserWithUserDto readListAuthUserWithUserDtoByUserId(Long id) {
+        User user = userDao.readUserByUserIdDao(id);
+        AuthUser authUser = authUserDao.getAuthUserByUserIdDao(id);
+        return new AuthUserWithUserDto(authUser.getUser_id(), authUser.getLogin(), authUser.getPassword(),
+                user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone());
+    }
+
+    @Override
     public boolean deleteUserById(Long user_id) {
         try {
             userDao.deleteUserDao(user_id);

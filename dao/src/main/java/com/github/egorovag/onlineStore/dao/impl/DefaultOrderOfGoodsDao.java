@@ -46,7 +46,7 @@ public class DefaultOrderOfGoodsDao implements OrderOfGoodsDao {
     }
 
     @Override
-    public boolean deleteOrderOfGoodsDao(Long id) {
+    public boolean deleteOrderOfGoodsByIdDao(Long id) {
         try {
             orderOfGoodsJpaRepository.deleteById(id);
             log.info("OrderOfGoods with : {} id deleted", id);
@@ -92,7 +92,7 @@ public class DefaultOrderOfGoodsDao implements OrderOfGoodsDao {
     }
 
     @Override
-    public OrderOfGoods getOrderOfGoodsDao(Long id) {
+    public OrderOfGoods getOrderOfGoodsByIdDao(Long id) {
         try {
             OrderOfGoodsEntity orderOfGoodsEntity = orderOfGoodsJpaRepository.findById(id).orElse(null);
             log.info("OrderOfGoods with : {} id read", id);
@@ -105,7 +105,7 @@ public class DefaultOrderOfGoodsDao implements OrderOfGoodsDao {
 
     @Override
     public boolean updateOrderCompletedForOrderOfGoodsByIdDao(Long id) {
-        try{
+        try {
             orderOfGoodsJpaRepository.updateOrderCompletedForOrderOfGoodsById(id);
             log.info("OrderOfGoods with : {} id updated", id);
             return true;
@@ -116,4 +116,19 @@ public class DefaultOrderOfGoodsDao implements OrderOfGoodsDao {
         }
     }
 
+    @Override
+    public List<OrderOfGoods> getOrderOfGoodsByAuthUserIdDao(Long id) {
+        try {
+            List<OrderOfGoodsEntity> orderOfGoodsEntities = orderOfGoodsJpaRepository.getOrderOfGoodsByAuthUser_IdDao(id);
+            log.info("OrderOfGoods read");
+            return orderOfGoodsEntities.stream()
+                    .map(OrderOfGoodsConverter::fromEntity)
+                    .collect(Collectors.toList());
+        } catch (
+                Exception e) {
+            log.error("Fail to read OrderOfGoods", e);
+            return null;
+        }
+    }
 }
+
