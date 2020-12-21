@@ -49,11 +49,25 @@ public class UserController {
         return "listOfRegisteredUsers";
     }
 
-    @PostMapping("/personalData")
+    @GetMapping("/personalData")
     public String getAuthUserWithUserById(Model map) {
         AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AuthUserWithUserDto authUserWithUserDto = userService.readListAuthUserWithUserDtoByUserId(authUser.getUser_id());
+        AuthUserWithUserDto authUserWithUserDto = userService.readAuthUserWithUserDtoByUserIdService(authUser.getUser_id());
         map.addAttribute("authUserWithUserDto", authUserWithUserDto);
         return "userPersonalData";
+    }
+
+    @GetMapping("/edit")
+    public String editAuthUserAndUserDto(Model map) {
+        AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AuthUserWithUserDto authUserWithUserDto = userService.readAuthUserWithUserDtoByUserIdService(authUser.getUser_id());
+        map.addAttribute("authUserWithUserDto", authUserWithUserDto);
+        return "editUser";
+    }
+
+    @PostMapping("/updateUser")
+    public String updateAuthUserWithUser(AuthUserWithUserDto authUserWithUserDto){
+        userService.updateAuthUserWithUserService(authUserWithUserDto);
+        return  "redirect:/user/personalData";
     }
 }

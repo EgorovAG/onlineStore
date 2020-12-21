@@ -4,6 +4,7 @@ import com.github.egorovag.onlineStore.dao.UserDao;
 import com.github.egorovag.onlineStore.dao.converter.AuthUserConverter;
 import com.github.egorovag.onlineStore.dao.converter.OrderOfGoodsConverter;
 import com.github.egorovag.onlineStore.dao.converter.UserConverter;
+import com.github.egorovag.onlineStore.dao.entity.AuthUserEntity;
 import com.github.egorovag.onlineStore.dao.entity.OrderOfGoodsEntity;
 import com.github.egorovag.onlineStore.dao.entity.UserEntity;
 import com.github.egorovag.onlineStore.dao.repository.UserJpaRepository;
@@ -87,18 +88,27 @@ public class DefaultUserDao implements UserDao {
 
     @Override
     public boolean deleteUserDao(Long id) {
-            try {
-                userJpaRepository.deleteById(id);
-                log.info("User with : {} id deleted", id);
-                return true;
-            } catch (Exception e) {
-                log.error("Fail to delete User with : {} id ", id, e);
-                return false;
-            }
+        try {
+            userJpaRepository.deleteById(id);
+            log.info("User with : {} id deleted", id);
+            return true;
+        } catch (Exception e) {
+            log.error("Fail to delete User with : {} id ", id, e);
+            return false;
         }
+    }
 
     @Override
-    public User updateUserDao(User user) {
-        return null;
+    public boolean updateUserDao(User user) {
+        try {
+            UserEntity userEntity = UserConverter.toEntity(user);
+            userJpaRepository.updateUserByUser(userEntity.getId(), userEntity.getFirstName(), userEntity.getLastName(),
+                    userEntity.getEmail(), userEntity.getPhone());
+            log.info("User with id: {} updated", user.getId());
+            return true;
+        } catch (Exception e) {
+            log.error("Fail to update User with id: {}", user.getId(), e);
+            return false;
+        }
     }
 }

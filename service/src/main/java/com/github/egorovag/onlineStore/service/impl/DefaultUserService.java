@@ -5,6 +5,7 @@ import com.github.egorovag.onlineStore.dao.UserDao;
 import com.github.egorovag.onlineStore.model.AuthUser;
 import com.github.egorovag.onlineStore.model.User;
 import com.github.egorovag.onlineStore.model.dto.AuthUserWithUserDto;
+import com.github.egorovag.onlineStore.model.enums.Role;
 import com.github.egorovag.onlineStore.service.UserService;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,6 +42,7 @@ public class DefaultUserService implements UserService {
             AuthUser authUser = authUserDao.getAuthUserByIdDao(user.getId());
             listAuthUserWithUserDto.add(
                     new AuthUserWithUserDto(
+                            authUser.getId(),
                             user.getId(),
                             authUser.getLogin(),
                             authUser.getPassword(),
@@ -54,20 +56,24 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public AuthUserWithUserDto readListAuthUserWithUserDtoByUserId(Long id) {
+    public AuthUserWithUserDto readAuthUserWithUserDtoByUserIdService(Long id) {
         User user = userDao.readUserByUserIdDao(id);
         AuthUser authUser = authUserDao.getAuthUserByUserIdDao(id);
-        return new AuthUserWithUserDto(authUser.getUser_id(), authUser.getLogin(), authUser.getPassword(),
+        return new AuthUserWithUserDto(authUser.getId(), authUser.getUser_id(), authUser.getLogin(), authUser.getPassword(),
                 user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhone());
     }
 
     @Override
-    public boolean deleteUserById(Long user_id) {
-        try {
+    public void updateAuthUserWithUserService(AuthUserWithUserDto authUserWithUserDto) {
+        authUserDao.updateAuthUserDao(new AuthUser(authUserWithUserDto.getAuthUser_id(),authUserWithUserDto.getLogin(),
+                authUserWithUserDto.getPassword(), Role.Client, authUserWithUserDto.getUser_id()));
+        userDao.updateUserDao(new User(authUserWithUserDto.getUser_id(),authUserWithUserDto.getFirstName(),
+                authUserWithUserDto.getLastName(), authUserWithUserDto.getEmail(), authUserWithUserDto.getPhone()));
+
+    }
+
+    @Override
+    public void deleteUserById(Long user_id) {
             userDao.deleteUserDao(user_id);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
     }
 }

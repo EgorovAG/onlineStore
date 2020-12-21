@@ -94,6 +94,10 @@
         <put-attribute name="body" value="/WEB-INF/view/page/userPersonalData.jspx"/>
     </definition>
 
+    <definition name="editUser" extends="default">
+        <put-attribute name="body" value="/WEB-INF/view/page/editUser.jspx"/>
+    </definition>
+
 
 
 

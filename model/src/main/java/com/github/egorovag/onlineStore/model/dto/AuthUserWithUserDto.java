@@ -9,6 +9,7 @@ import lombok.*;
 //@EqualsAndHashCode(of = {"user_id", "login"})
 //@ToString(onlyExplicitlyIncluded = true)
 public class AuthUserWithUserDto {
+    private Long authUser_id;
     private Long user_id;
     private String login;
     private String password;
@@ -17,8 +18,9 @@ public class AuthUserWithUserDto {
     private String email;
     private String phone;
 
-    public AuthUserWithUserDto(Long user_id, String login, String password, String firstName, String lastName,
-                               String email, String phone) {
+    public AuthUserWithUserDto(Long authUser_id, Long user_id, String login, String password, String firstName,
+                               String lastName, String email, String phone) {
+        this.authUser_id = authUser_id;
         this.user_id = user_id;
         this.login = login;
         this.password = password;
@@ -29,6 +31,14 @@ public class AuthUserWithUserDto {
     }
 
     public AuthUserWithUserDto() {
+    }
+
+    public Long getAuthUser_id() {
+        return authUser_id;
+    }
+
+    public void setAuthUser_id(Long authUser_id) {
+        this.authUser_id = authUser_id;
     }
 
     public Long getUser_id() {
@@ -90,7 +100,8 @@ public class AuthUserWithUserDto {
     @Override
     public String toString() {
         return "AuthUserWithUserDto{" +
-                "user_id=" + user_id +
+                "authUser_id=" + authUser_id +
+                ", user_id=" + user_id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +

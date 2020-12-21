@@ -1,0 +1,58 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:s="http://www.springframework.org/tags/form"
+          xmlns:spring="http://www.springframework.org/tags"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0" xmlns:sec="http://www.springframework.org/security/tags">
+
+    <spring:message code="label.editUser"/>
+
+
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+
+            <th><spring:message code="label.login"/></th>
+            <th><spring:message code="label.password"/></th>
+            <th><spring:message code="label.firstName"/></th>
+            <th><spring:message code="label.lastName"/></th>
+            <th><spring:message code="label.email"/></th>
+            <th><spring:message code="label.phone"/></th>
+            <th></th>
+        </tr>
+        <tr>
+
+
+            <td>
+                <input form="updateUser" name="login" value="${authUserWithUserDto.login}"/>
+            </td>
+            <td>
+                <input form="updateUser" name="password" value="${authUserWithUserDto.password}"/>
+
+            </td>
+            <td>
+                <input form="updateUser" name="firstName" value="${authUserWithUserDto.firstName}"/>
+            </td>
+            <td>
+                <input form="updateUser" name="lastName" value="${authUserWithUserDto.lastName}"/>
+            </td>
+            <td>
+                <input form="updateUser" name="email" value="${authUserWithUserDto.email}"/>
+            </td>
+            <td>
+                <input form="updateUser" name="phone" value="${authUserWithUserDto.phone}"/>
+            </td>
+            <td>
+                <form id="updateUser" name="updateUser" action="${pageContext.request.contextPath}/user/updateUser"
+                      method="post">
+                    <input name="user_id" value="${authUserWithUserDto.user_id}" hidden="hidden"/>
+                    <input name="authUser_id" value="${authUserWithUserDto.authUser_id}" hidden="hidden"/>
+                    <button name="updateUser"><spring:message code="button.save"/></button>
+                </form>
+
+            </td>
+        </tr>
+    </table>
+
+
+</jsp:root>
+

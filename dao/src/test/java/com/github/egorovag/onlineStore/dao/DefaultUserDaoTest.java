@@ -18,6 +18,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @ExtendWith(SpringExtension.class)
@@ -69,7 +70,7 @@ class DefaultUserDaoTest {
     @Test
     void testDeleteUserDao() {
         boolean res = userDao.deleteUserDao(userSave.getId());
-        Assertions.assertTrue(res);
+        assertTrue(res);
     }
 
     @Test
@@ -78,4 +79,11 @@ class DefaultUserDaoTest {
         Assertions.assertEquals("user", userList.get(0).getFirstName());
     }
 
+    @Test
+    void testUpdateUserDao() {
+        User userNew = new User(userSave.getId(), "Petr", "Petrov", "petrov@mail.com",
+                "+375295554477");
+        boolean res = userDao.updateUserDao(userNew);
+        assertTrue(res);
+    }
 }

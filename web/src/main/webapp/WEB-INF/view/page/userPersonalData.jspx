@@ -5,7 +5,32 @@
           xmlns:c="http://java.sun.com/jsp/jstl/core"
           version="2.0" xmlns:sec="http://www.springframework.org/security/tags">
 
-   ${authUserWithUserDto}
+    <table border="1" width="100%" cellpadding="5">
+        <tr>
+
+            <th><spring:message code="label.login"/></th>
+            <th><spring:message code="label.password"/></th>
+            <th><spring:message code="label.firstName"/></th>
+            <th><spring:message code="label.lastName"/></th>
+            <th><spring:message code="label.email"/></th>
+            <th><spring:message code="label.phone"/></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>${authUserWithUserDto.login}</td>
+            <td>${authUserWithUserDto.password}</td>
+            <td>${authUserWithUserDto.firstName}</td>
+            <td>${authUserWithUserDto.lastName}</td>
+            <td>${authUserWithUserDto.email}</td>
+            <td>${authUserWithUserDto.phone}</td>
+            <td>
+                <form name="edit" action="${pageContext.request.contextPath}/user/edit">
+<!--                    <input name="user_id" value="${authUserWithUserDto.user_id}" hidden="hidden"/>-->
+                    <button name="edit"><spring:message code="button.edit"/></button>
+                </form>
+            </td>
+        </tr>
+    </table>
 
 
 </jsp:root>

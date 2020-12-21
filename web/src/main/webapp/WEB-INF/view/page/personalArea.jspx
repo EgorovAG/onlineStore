@@ -24,7 +24,7 @@
         </fieldset>
 
         <fieldset>
-            <form action="${pageContext.request.contextPath}/user/personalData" method="post">
+            <form action="${pageContext.request.contextPath}/user/personalData" >
                 <button name="personalData"><spring:message code="button.personalData"/></button>
             </form>
         </fieldset>

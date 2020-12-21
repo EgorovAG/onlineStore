@@ -89,5 +89,18 @@ public class DefaultAuthUserDao implements AuthUserDao {
             return null;
         }
     }
+
+    @Override
+    public boolean updateAuthUserDao(AuthUser authUser) {
+        try {
+            AuthUserEntity authUserEntity = AuthUserConverter.toEntity(authUser);
+            authUserJpaRepository.updateAuthUserByAuthUser(authUserEntity.getId(), authUserEntity.getLogin(),authUserEntity.getPassword());
+            log.info("AuthUser with id: {} updated", authUser.getId());
+            return true;
+        } catch (Exception e) {
+            log.error("Fail to update AuthUser with id: {}", authUser.getId(), e);
+            return false;
+        }
+    }
 }
 
