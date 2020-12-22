@@ -20,4 +20,5 @@ public interface AuthUserJpaRepository extends JpaRepository<AuthUserEntity, Lon
     void updateAuthUserByAuthUser(@Param("id") Long id,
                                   @Param("login") String login,
                                   @Param("password") String password);
+    AuthUserEntity findByLogin(String login);
 }

@@ -11,4 +11,6 @@ public interface AuthUserService {
     boolean checkLogin(String login, String password);
 
     AuthUser saveAuthUserService(AuthUser authUser);
+
+//    boolean checkLoginByOnlyLogin(String login);
 }

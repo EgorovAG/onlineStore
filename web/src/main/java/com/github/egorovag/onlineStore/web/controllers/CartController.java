@@ -1,10 +1,12 @@
 package com.github.egorovag.onlineStore.web.controllers;
 
+import com.github.egorovag.onlineStore.model.AuthUser;
 import com.github.egorovag.onlineStore.model.Cart;
 import com.github.egorovag.onlineStore.model.Product;
 import com.github.egorovag.onlineStore.service.CartService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -68,6 +70,16 @@ public class CartController {
         Cart cart = (Cart) httpSession.getAttribute("cart");
         cartService.addItemToCart(cart);
 
+        return "orderIsAccepted";
+    }
+
+    @PostMapping("/ordering")
+    public String ordering(Model map) {
+        AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(authUser==null){
+            map.addAttribute("errorLogIn", "error.logInOrder");
+            return "login";
+        }
         return "orderIsAccepted";
     }
 

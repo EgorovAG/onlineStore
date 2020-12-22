@@ -21,25 +21,30 @@
         </tr>
         <tr>
 
-
             <td>
-                <input form="updateUser" name="login" value="${authUserWithUserDto.login}"/>
+                ${authUserWithUserDto.login}
+                <input form="updateUser" type="text" name="login" value="${authUserWithUserDto.login}"
+                       hidden="hidden" />
             </td>
             <td>
-                <input form="updateUser" name="password" value="${authUserWithUserDto.password}"/>
-
+                <input form="updateUser" type="text" name="password" value="${authUserWithUserDto.password}"
+                       pattern="[A-Za-zА-Яа-я0-9]{1,50}" required=""/>
             </td>
             <td>
-                <input form="updateUser" name="firstName" value="${authUserWithUserDto.firstName}"/>
+                <input form="updateUser" type="text" name="firstName" value="${authUserWithUserDto.firstName}"
+                       pattern="[A-Za-zА-Яа-я0-9]{1,50}" required=""/>
             </td>
             <td>
-                <input form="updateUser" name="lastName" value="${authUserWithUserDto.lastName}"/>
+                <input form="updateUser" type="text" name="lastName" value="${authUserWithUserDto.lastName}"
+                       pattern="[A-Za-zА-Яа-я0-9]{1,50}" required=""/>
             </td>
             <td>
-                <input form="updateUser" name="email" value="${authUserWithUserDto.email}"/>
+                <input form="updateUser" type="email" name="email" value="${authUserWithUserDto.email}"
+                       pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" required=""/>
             </td>
             <td>
-                <input form="updateUser" name="phone" value="${authUserWithUserDto.phone}"/>
+                <input form="updateUser" type="tel" name="phone" value="${authUserWithUserDto.phone}"
+                       pattern="^\+\d{12}" required=""/>
             </td>
             <td>
                 <form id="updateUser" name="updateUser" action="${pageContext.request.contextPath}/user/updateUser"
@@ -52,6 +57,9 @@
             </td>
         </tr>
     </table>
+    <c:if test="${error!=null}">
+        <p style="color: red"><spring:message code="${error}"/></p>
+    </c:if>
 
 
 </jsp:root>

@@ -2,6 +2,7 @@ package com.github.egorovag.onlineStore.web.controllers;
 
 import com.github.egorovag.onlineStore.model.AuthUser;
 import com.github.egorovag.onlineStore.model.dto.AuthUserWithUserDto;
+import com.github.egorovag.onlineStore.service.AuthUserService;
 import com.github.egorovag.onlineStore.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +23,11 @@ public class UserController {
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     private final UserService userService;
+    private final AuthUserService authUserService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, AuthUserService authUserService) {
         this.userService = userService;
+        this.authUserService = authUserService;
     }
 
     @GetMapping("/registeredUser")
@@ -37,6 +40,7 @@ public class UserController {
         }
         return "listOfRegisteredUsers";
     }
+
     @PostMapping("/delete")
     public String getListUsers(@RequestParam(value = "user_id") Long user_id, Model map) {
         userService.deleteUserById(user_id);
@@ -66,8 +70,19 @@ public class UserController {
     }
 
     @PostMapping("/updateUser")
-    public String updateAuthUserWithUser(AuthUserWithUserDto authUserWithUserDto){
-        userService.updateAuthUserWithUserService(authUserWithUserDto);
-        return  "redirect:/user/personalData";
+    public String updateAuthUserWithUser(AuthUserWithUserDto authUserWithUserDto, Model map) {
+//        AuthUser authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+//        if (!authUserWithUserDto.getLogin().equals(authUser.getLogin())) {
+//            if (!authUserService.checkLoginByOnlyLogin(authUserWithUserDto.getLogin())) {
+//                map.addAttribute("error", "error.registration");
+//                AuthUserWithUserDto authUserWithUserDtoDB = userService.readAuthUserWithUserDtoByUserIdService(authUser.getUser_id());
+//                map.addAttribute("authUserWithUserDto", authUserWithUserDtoDB);
+//                return "editUser";
+//            }
+//        } else {
+            userService.updateAuthUserWithUserService(authUserWithUserDto);
+//        }
+        return "redirect:/user/personalData";
     }
 }

@@ -92,7 +92,7 @@
 
     <!--    <sec:authorize access="hasRole('ROLE_USER')" >-->
     <h2 style="text-align: center"><spring:message code="button.ordering"/></h2>
-    <form action="${pageContext.request.contextPath}/order">
+    <form action="${pageContext.request.contextPath}/order/ordering">
         <button name="ordering"><spring:message code="button.ordering"/></button>
     </form>
     <!--    </sec:authorize>-->

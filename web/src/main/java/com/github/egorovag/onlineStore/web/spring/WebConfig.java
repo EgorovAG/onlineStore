@@ -72,7 +72,7 @@ public class WebConfig {
 
     @Bean
     public UserController userController() {
-        return new UserController(serviceConfig.userService());
+        return new UserController(serviceConfig.userService(), serviceConfig.authUserService());
     }
 
     @Bean

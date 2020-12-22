@@ -25,11 +25,19 @@ public class DefaultAuthUserService implements AuthUserService {
         return authUserDao.getAuthUserByLoginAndByPasswordDao(login, password) != null;
     }
 
+    ;
+
     @Override
     @Transactional
     public AuthUser saveAuthUserService(AuthUser authUser) {
         return authUserDao.saveAuthUserDao(authUser);
     }
+
+//    @Override
+//    public boolean checkLoginByOnlyLogin(String login) {
+//        return authUserDao.getAuthUserByLoginDao(login) != null;
+//    }
 }
+
 
 

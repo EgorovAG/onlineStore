@@ -62,7 +62,7 @@ class DefaultAuthUserDaoTest {
     @Test
     void testGetAuthUserByUserIdDao() {
         AuthUser authUserByUserIdDaoRes = authUserDao.getAuthUserByUserIdDao(authUserSave.getUser_id());
-        assertEquals(authUserSave.getLogin(), authUserByUserIdDaoRes.getLogin());
+        assertEquals("authUser", authUserByUserIdDaoRes.getLogin());
     }
 
     @Test
@@ -72,4 +72,11 @@ class DefaultAuthUserDaoTest {
         boolean res = authUserDao.updateAuthUserDao(authUserNew);
         assertTrue(res);
     }
+
+//    @Test
+//    void testGetAuthUserByLoginDao() {
+//        AuthUser authUserByLoginDaoRes = authUserDao.getAuthUserByLoginDao(authUserSave.getLogin());
+//        assertEquals("authUser", authUserByLoginDaoRes.getLogin());
+//    }
+
 }

@@ -20,6 +20,10 @@
     </form>
     <br/><br/>
 
+    <c:if test="${errorLogIn!=null}">
+        <p style="color: red"><spring:message code="${errorLogIn}"/></p>
+    </c:if>
+
     <a href="${pageContext.request.contextPath}/registration"><spring:message code="button.registration"/></a>
     <c:if test="${error!=null}">
         <p style="color: red"><spring:message code="${error}"/></p>

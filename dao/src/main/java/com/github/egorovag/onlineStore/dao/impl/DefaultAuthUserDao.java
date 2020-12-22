@@ -94,7 +94,7 @@ public class DefaultAuthUserDao implements AuthUserDao {
     public boolean updateAuthUserDao(AuthUser authUser) {
         try {
             AuthUserEntity authUserEntity = AuthUserConverter.toEntity(authUser);
-            authUserJpaRepository.updateAuthUserByAuthUser(authUserEntity.getId(), authUserEntity.getLogin(),authUserEntity.getPassword());
+            authUserJpaRepository.updateAuthUserByAuthUser(authUserEntity.getId(), authUserEntity.getLogin(), authUserEntity.getPassword());
             log.info("AuthUser with id: {} updated", authUser.getId());
             return true;
         } catch (Exception e) {
@@ -102,5 +102,17 @@ public class DefaultAuthUserDao implements AuthUserDao {
             return false;
         }
     }
+
+//    @Override
+//    public AuthUser getAuthUserByLoginDao(String login) {
+//        try {
+//            AuthUserEntity authUserEntity = authUserJpaRepository.findByLogin(login);
+//            log.info("Get authUser with login {} ", login);
+//            return AuthUserConverter.fromEntity(authUserEntity);
+//        } catch (Exception e) {
+//            log.error("fail to get authUser with login {} ", login, e);
+//            return null;
+//        }
+//    }
 }
 
