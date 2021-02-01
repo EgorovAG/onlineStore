@@ -3,12 +3,15 @@ package com.github.egorovag.onlineStore.model.dto;
 import com.github.egorovag.onlineStore.model.enums.Role;
 import lombok.*;
 
+import java.io.Serializable;
+
 //@Data
 //@NoArgsConstructor
 //@AllArgsConstructor
 //@EqualsAndHashCode(of = {"user_id", "login"})
 //@ToString(onlyExplicitlyIncluded = true)
-public class AuthUserWithUserDto {
+public class AuthUserWithUserDto implements Serializable {
+
     private Long authUser_id;
     private Long user_id;
     private String login;

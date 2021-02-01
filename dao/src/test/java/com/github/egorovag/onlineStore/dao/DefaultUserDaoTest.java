@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = DaoConfig.class)
-//@Transactional
+@Transactional
 class DefaultUserDaoTest {
 
     @Autowired
@@ -41,7 +41,6 @@ class DefaultUserDaoTest {
         AuthUser authUser = new AuthUser("authUser", "authUserPass", Role.Seller, userSave.getId());
         authUserSave = authUserDao.saveAuthUserDao(authUser);
     }
-
 
     @Test
     void readUserByUserIdDao() {

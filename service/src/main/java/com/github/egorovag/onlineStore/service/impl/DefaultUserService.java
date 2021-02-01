@@ -34,6 +34,7 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
+    @Transactional
     public List<AuthUserWithUserDto> readListAuthUserWithUserDto() {
         List<User> users = userDao.readListUser();
         List<AuthUserWithUserDto> listAuthUserWithUserDto = new ArrayList<>();
@@ -56,6 +57,7 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
+    @Transactional
     public AuthUserWithUserDto readAuthUserWithUserDtoByUserIdService(Long id) {
         User user = userDao.readUserByUserIdDao(id);
         AuthUser authUser = authUserDao.getAuthUserByUserIdDao(id);
@@ -64,15 +66,16 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
+    @Transactional
     public void updateAuthUserWithUserService(AuthUserWithUserDto authUserWithUserDto) {
         authUserDao.updateAuthUserDao(new AuthUser(authUserWithUserDto.getAuthUser_id(),authUserWithUserDto.getLogin(),
                 authUserWithUserDto.getPassword(), Role.Client, authUserWithUserDto.getUser_id()));
         userDao.updateUserDao(new User(authUserWithUserDto.getUser_id(),authUserWithUserDto.getFirstName(),
                 authUserWithUserDto.getLastName(), authUserWithUserDto.getEmail(), authUserWithUserDto.getPhone()));
-
     }
 
     @Override
+    @Transactional
     public void deleteUserById(Long user_id) {
             userDao.deleteUserDao(user_id);
     }

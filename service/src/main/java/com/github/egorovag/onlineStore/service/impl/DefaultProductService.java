@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public class DefaultProductService implements ProductService {
     private ProductDao productDao;
 
@@ -16,13 +17,11 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
-    @Transactional
     public List<Product> getProductByProductNameService(ProductName productName) {
         return productDao.getProductByProductNameDao(productName);
     }
 
     @Override
-    @Transactional
     public Product getProductByIdService(Long id) {
         return productDao.getProductByIdDao(id);
     }
